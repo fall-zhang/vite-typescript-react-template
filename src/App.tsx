@@ -1,8 +1,8 @@
-import React from "react";
-import "antd/dist/antd.less";
-import style from "./App.module.less";
-import RouterPage from "./router";
-import { LocaleProvider } from "./components/locales";
+import React from "react"
+import "antd/dist/antd.less"
+import style from "./App.module.less"
+import RouterPage from "./router"
+import { LocaleProvider } from "./components/locales"
 
 /**
  * 入口
@@ -17,7 +17,7 @@ const App: React.FC = function () {
       </LocaleProvider>
       {/* </header> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

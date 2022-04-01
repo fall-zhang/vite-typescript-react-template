@@ -1,22 +1,22 @@
-import React from "react";
-import type { IntlShape } from "react-intl";
-import { createIntl, IntlProvider } from "react-intl";
+import React from "react"
+import type { IntlShape } from "react-intl"
+import { createIntl, IntlProvider } from "react-intl"
 // 我们需要引入antd 的国际化的配置
-import antdEnUS from "antd/lib/locale/en_US";
-import antdZhCN from "antd/lib/locale/zh_CN";
+import antdEnUS from "antd/lib/locale/en_US"
+import antdZhCN from "antd/lib/locale/zh_CN"
 // 这是我们项目中中英文的配置，
-import enLn from "./components/ln-en";
-import zhLn from "./components/ln-zh-cn";
+import enLn from "./components/ln-en"
+import zhLn from "./components/ln-zh-cn"
 
-let gIntl: IntlShape;
+let gIntl: IntlShape
 // 默认语言
-let defaultLanguage = "zh-cn";
+let defaultLanguage = "zh-cn"
 // 当前使用的语言
-const currentLocalName = localStorage.getItem("current__locale") || defaultLanguage;
+const currentLocalName = localStorage.getItem("current__locale") || defaultLanguage
 
 // 本地未存储语言配置，默认添加一个
 if (!localStorage.getItem("current__locale")) {
-  localStorage.setItem("current__locale", defaultLanguage);
+  localStorage.setItem("current__locale", defaultLanguage)
 }
 
 /**
@@ -35,16 +35,16 @@ export const localeInfo: Record<string, any> = {
     antd: antdZhCN,
     momentLocale: "zh-cn",
   },
-};
+}
 
 // 当前使用的localeInfo
-const currentLocaleInfo = localeInfo[defaultLanguage];
+const currentLocaleInfo = localeInfo[defaultLanguage]
 /**
  * 设置默认语言
  * @param lang
  */
 function setDefaultLanguage(lang: string) {
-  defaultLanguage = lang;
+  defaultLanguage = lang
 }
 
 /**
@@ -54,8 +54,8 @@ function setDefaultLanguage(lang: string) {
  * @returns
  */
 export const LocaleProvider: React.FC = (props) => {
-  return <IntlProvider locale={getLocale()}>{props.children}</IntlProvider>;
-};
+  return <IntlProvider locale={getLocale()}>{props.children}</IntlProvider>
+}
 
 /**
  * 获取当前的 intl 对象，可以在 node 中使用
@@ -66,45 +66,45 @@ export const LocaleProvider: React.FC = (props) => {
 const getIntl = (locale?: string, changeIntl?: boolean) => {
   // 如果全局的 g_intl 存在，且不是 setIntl 调用
   if (gIntl && !changeIntl && !locale) {
-    return gIntl;
+    return gIntl
   }
   // 如果存在于 localeInfo 中
   if (locale && localeInfo[locale]) {
-    return createIntl(localeInfo[locale]);
+    return createIntl(localeInfo[locale])
   }
 
   // 使用默认语言
   if (localeInfo[defaultLanguage])
-    return createIntl(localeInfo[defaultLanguage]);
+    return createIntl(localeInfo[defaultLanguage])
   // 使用 zh-CN
-  if (localeInfo["zh-cn"]) return createIntl(localeInfo["zh-cn"]);
+  if (localeInfo["zh-cn"]) return createIntl(localeInfo["zh-cn"])
   // 抛错
   if (!locale || !!localeInfo[locale]) {
     throw new Error(
       "The current popular language does not exist, please check the locales folder!"
-    );
+    )
   }
   // 如果还没有，返回一个空的
   return createIntl({
     locale: "zh-cn",
     messages: {},
-  });
-};
+  })
+}
 
 /**
  * 切换全局的 intl 的设置
  * @param locale 语言的 key
  */
 const setIntl = (locale: string) => {
-  gIntl = getIntl(locale, true);
-};
+  gIntl = getIntl(locale, true)
+}
 
 /**
  * 获取当前选择的语言
  * @returns string
  */
 export function getLocale() {
-  return currentLocalName;
+  return currentLocalName
 }
 
 /**
@@ -115,11 +115,11 @@ export function getLocale() {
 export const setLocale = (lang: string) => {
   // if (getStorageLocale() !== lang) {
   if (typeof window.localStorage !== "undefined") {
-    window.localStorage.setItem("current__locale", lang || "");
+    window.localStorage.setItem("current__locale", lang || "")
   }
-  window.location.reload();
+  window.location.reload()
   // }
-};
+}
 
 interface MessageDescriptor {
   id?: string;
@@ -137,17 +137,17 @@ export const formatMessage = (
   values?: Record<string, any>
 ) => {
   if (!gIntl) {
-    setIntl(getLocale());
+    setIntl(getLocale())
   }
-  return gIntl.formatMessage(descriptor, values);
-};
+  return gIntl.formatMessage(descriptor, values)
+}
 
 /**
  * 获取当前使用的语言信息
  * @returns
  */
 export const getLocaleInfo = () => {
-  return currentLocaleInfo;
-};
+  return currentLocaleInfo
+}
 
-export { createIntl };
+export { createIntl }

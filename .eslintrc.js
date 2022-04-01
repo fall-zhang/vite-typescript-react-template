@@ -25,6 +25,7 @@ module.exports = {
       2,
       { max: 320, skipComments: true, skipBlankLines: true },
     ],
+    "semi": [2, "never"],//语句强制分号结尾
     "no-confusing-arrow": 0,
     "no-nested-ternary": 0,
     "no-console": 2,
@@ -36,4 +37,4 @@ module.exports = {
     "react/prop-types": 0,
     "react/display-name": "off",
   },
-};
+}

@@ -10,7 +10,7 @@ import { formatMessage, setLocale } from "../../components/locales";
 const LocalePage: React.FC = () => {
   // 这使用的是useState,其实这里是完全不需要的
   const [value, setValue] = React.useState(
-    localStorage.getItem("current__locale") || "zh-cn"
+    localStorage.getItem("current__locale") || "zh-CN"
   );
   // 切换多语言
   const onChange = (e: RadioChangeEvent) => {
