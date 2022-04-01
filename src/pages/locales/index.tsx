@@ -21,7 +21,7 @@ const LocalePage: React.FC = () => {
     <Card title={formatMessage({ id: "switchLan" })} style={{ width: "500px" }}>
       <Radio.Group onChange={onChange} value={value}>
         <Radio value={"zh-CN"}>{formatMessage({ id: "switchToEn" })}</Radio>
-        <Radio value={"en"}>{formatMessage({ id: "switchToCh" })}</Radio>
+        <Radio value={"en-US"}>{formatMessage({ id: "switchToCh" })}</Radio>
       </Radio.Group>
       <div className={styles.localLan}>
         {formatMessage({ id: "localLan" })}react-intl

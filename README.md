@@ -322,101 +322,12 @@ token: string;
 
 - yarn add react-intl -D
 - 国际化我们使用 react-intl 同时也要兼容 antd,的之类插件的中英文，我们在切换语言的时候插件库也要直接进行切换到对应的语言，配置起来也很方便，
-- 我们直接上代码
+
+重置了国际化的内容
+
+```ts
 
 ```
-// 引入创建语言，国际化容器，暂时我们只需要用这两个就可以实现的我们目前的功能
-import { createIntl, IntlProvider } from "react-intl";
-// 我们需要引入antd 的国际化的配置
-import antdEnUS from "antd/lib/locale/en_US";
-import antdZhCN from "antd/lib/locale/zh_CN";
-// 这是我们项目中中英文的配置，
-import enLn from "./components/ln-en";
-import zhLn from "./components/ln-zh-cn";
-···核心代码
-/**
-* 包裹了默认 locale 的 Provider
-* LocaleProvider 需要在App.tx使用，包装整个项目
-* @param props
-* @returns
-  */
-  export const LocaleProvider: React.FC = (props) => {
-  return <IntlProvider locale={getLocale()}>{props.children}</IntlProvider>;
-  };
-/**
- * 获取当前的 intl 对象，可以在 node 中使用
- * @param locale 需要切换的语言类型
- * @param changeIntl 是否不使用 g_intl
- * @returns IntlShape
- */
-  const getIntl = (locale?: string, changeIntl?: boolean) => {
-
-  // 如果全局的 g_intl 存在，且不是 setIntl 调用
-  if (gIntl && !changeIntl && !locale) {
-  return gIntl;
-  }
-  // 如果存在于 localeInfo 中
-  if (locale && localeInfo[locale]) {
-  return createIntl(localeInfo[locale]);
-  }
-
-// 使用默认语言
-if (localeInfo[defaultLanguage])
-return createIntl(localeInfo[defaultLanguage]);
-// 使用 zh-CN
-if (localeInfo["zh-cn"]) return createIntl(localeInfo["zh-cn"]);
-  // 抛错
-if (!locale || !!localeInfo[locale]) {
-  throw new Error(
-  "The current popular language does not exist, please check the locales folder!"
-  );
-  }
-// 如果还没有，返回一个空的
-return createIntl({
-locale: "zh-cn",
-messages: {},
-});
-};
-/**
-* 语言转换
-* @param descriptor
-* @param values
-  */
-  export const formatMessage = (
-  descriptor: MessageDescriptor,
-  values?: Record<string, any>
-  ) => {
-  if (!gIntl) {
-  setIntl(getLocale());
-  }
-  return gIntl.formatMessage(descriptor, values);
-  };
-```
-
-- 页面中使用
-
-  1，我们要在对应的 ts 文件中配置中英文对照
-
-  ```
-  // 在locale 文件下配置中文对照
-  export default {
-  frontEnd: "Work hard on the front end",
-  switchLan: "Chinese-English shift",
-  switchToEn: "switch to chinese",
-  switchToCh: " switch to english",
-  localLan: "The internationalization of this project is   based on",
-  };
-  // 配置英文对照
-  export default {
-  frontEnd: "前端要努力",
-  switchLan: "中英文切换",
-  switchToEn: "切换到中文",
-  switchToCh: "切换到英文",
-  localLan: "本项目国际化基于",
-  };
-  ```
-
-  2，在页面中我们直接调用 formatMessage() 这个方法就好了
 
 ```tsx
 /**

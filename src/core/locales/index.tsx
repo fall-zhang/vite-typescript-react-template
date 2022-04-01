@@ -17,7 +17,7 @@ const defaultLanguage = "zh-CN"
 /**
  * 本地默认的语言信息
  */
-const localeInfo: Record<SupportLanguage, SingleLanguageSetting> = {
+const langSupport: Record<SupportLanguage, SingleLanguageSetting> = {
   "en-US": {
     locale: "en-US",
     messages: en_US,
@@ -42,7 +42,7 @@ if (!localStorage.getItem("current__locale")) {
  */
 const getLocaleInfo = (): SingleLanguageSetting => {
   const local = getLocale()
-  return localeInfo[local]
+  return langSupport[local]
 }
 
 /**
@@ -52,33 +52,32 @@ function getLocale(): SupportLanguage {
   const result = localStorage.getItem("current__locale") || defaultLanguage
   return result as SupportLanguage
 }
+/**
+ * 初始化当前语言
+ * 通过 React 的 createIntl 初始化语言
+ */
+
+const initLanguage = () => {
+  const currentLocale = getLocale()
+  if (!globalInitLanguage) {
+    globalInitLanguage = createIntl(langSupport[currentLocale])
+  }
+  return createIntl(langSupport[currentLocale])
+}
 
 /**
- * 包裹了默认 locale 的 Provider
+ * antd 的国际化，和当前项目的国际化
  */
 const LocaleProvider: React.FC = (props) => {
-  console.log(getLocale())
-
   return (
     <IntlProvider locale={getLocale()}>
-      <ConfigProvider locale={localeInfo[getLocale()].antd}>
+      <ConfigProvider locale={langSupport[getLocale()].antd}>
         {props.children}
       </ConfigProvider>
     </IntlProvider>
   )
 }
 
-/**
- * 初始化当前语言
- */
-
-const initLanguage = () => {
-  const currentLocale = getLocale()
-  if (!globalInitLanguage) {
-    globalInitLanguage = createIntl(localeInfo[currentLocale])
-  }
-  return createIntl(localeInfo[currentLocale])
-}
 
 /**
  * 切换语言
