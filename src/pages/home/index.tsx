@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import styles from "./index.module.less";
-import { Layout, Menu, Tooltip } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react"
+import styles from "./index.module.less"
+import { Layout, Menu, Tooltip } from "antd"
+import { Link, useLocation } from "react-router-dom"
 import {
   DesktopOutlined,
   PieChartOutlined,
   FileOutlined,
-} from "@ant-design/icons";
-import { formatMessage } from "../../components/locales";
+} from "@ant-design/icons"
+import { formatMessage } from "@/core/locales"
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout
 const HomePage: React.FC = ({ children }) => {
   // 收缩侧边栏
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+  const [collapsed, setCollapsed] = useState<boolean>(false)
   return (
     <Layout style={{ minHeight: "100vh", width: "100%" }}>
       <Sider
@@ -68,7 +68,7 @@ const HomePage: React.FC = ({ children }) => {
         </Footer>
       </Layout>
     </Layout>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

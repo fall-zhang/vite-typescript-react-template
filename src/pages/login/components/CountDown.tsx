@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Button, Col, Form, Input, notification, Row, message } from "antd";
-import classNames from "classnames";
-import { FormInstance } from "antd/es/form";
-import messageStyles from "./LoginMessage.module.less";
-import styles from "../index.module.less";
-import { formatMessage } from "../../../components/locales";
-import { useInterval } from "ahooks";
+import React, { useState } from "react"
+import { Button, Col, Form, Input, notification, Row, message } from "antd"
+import classNames from "classnames"
+import { FormInstance } from "antd/es/form"
+import messageStyles from "./LoginMessage.module.less"
+import styles from "../index.module.less"
+import { formatMessage } from "@/core/locales"
+import { useInterval } from "ahooks"
 
 interface ICountDownParams {
   type: "LOGIN" | "REG" | "PWD"; // 类型（登录LOGIN/注册REG/找回密码PWD）
@@ -22,28 +22,28 @@ const CountDown: React.FC<ICountDownParams> = ({
     <Form.Item name="prefix" noStyle>
       <span>+86</span>
     </Form.Item>
-  );
+  )
 
   // 验证码描述
-  const [des, setDes] = useState("获取验证码");
+  const [des, setDes] = useState("获取验证码")
   // 控制按钮是否可以点击
-  const [click, setClick] = useState(true);
+  const [click, setClick] = useState(true)
 
   /**
    * 倒计时
    */
-  const [count, setCount] = useState(60);
-  const [delay, setDelay] = useState<number | null>(null);
+  const [count, setCount] = useState(60)
+  const [delay, setDelay] = useState<number | null>(null)
   useInterval(() => {
-    setCount(count - 1);
-    setDes(`${"重置"}(${count} s)`);
+    setCount(count - 1)
+    setDes(`${"重置"}(${count} s)`)
     if (count <= 0) {
-      setCount(60);
-      setDes("获取验证码");
-      setDelay(null);
-      setClick(true);
+      setCount(60)
+      setDes("获取验证码")
+      setDelay(null)
+      setClick(true)
     }
-  }, delay);
+  }, delay)
 
   /**
    * 发送验证码
@@ -52,8 +52,8 @@ const CountDown: React.FC<ICountDownParams> = ({
     form
       .validateFields(["phone", "invitation_code"])
       .then((data: { [name: string]: any }) => {
-        setDes(formatMessage({ id: "sending" }));
-        setClick(false);
+        setDes(formatMessage({ id: "sending" }))
+        setClick(false)
         // getCode({
         //   phone: data.phone,
         //   invitation_code: data.invitation_code,
@@ -76,7 +76,7 @@ const CountDown: React.FC<ICountDownParams> = ({
         //   .catch(() => {
         //     setDelay(null);
         //   });
-      });
+      })
   }
 
   return (
@@ -150,7 +150,7 @@ const CountDown: React.FC<ICountDownParams> = ({
         </Row>
       </Form.Item>
     </>
-  );
-};
+  )
+}
 
-export default CountDown;
+export default CountDown

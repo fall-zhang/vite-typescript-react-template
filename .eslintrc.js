@@ -28,7 +28,7 @@ module.exports = {
     "semi": [2, "never"],//语句强制分号结尾
     "no-confusing-arrow": 0,
     "no-nested-ternary": 0,
-    "no-console": 2,
+    "no-console": 0,
     "no-param-reassign": [
       2,
       { props: true, ignorePropertyModificationsFor: ["draft"] },

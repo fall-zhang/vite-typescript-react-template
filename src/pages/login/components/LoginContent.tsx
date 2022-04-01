@@ -1,6 +1,6 @@
-import { formatMessage } from "@/components/locales";
-import React from "react";
-import styles from "../index.module.less";
+import { formatMessage } from "@/core/locales"
+import React from "react"
+import styles from "../index.module.less"
 
 /**
  * 登录、注册等页面的公共组件
@@ -22,7 +22,7 @@ const LoginContent: React.FC<ILoginContent> = ({ loginTitle, changeWay }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginContent;
+export default LoginContent

@@ -1,9 +1,9 @@
-import React from "react";
-import { Form, Button } from "antd";
-import { Link } from "react-router-dom";
-import CountDown from "./CountDown";
-import styles from "../index.module.less";
-import { formatMessage } from "../../../components/locales";
+import React from "react"
+import { Form, Button } from "antd"
+import { Link } from "react-router-dom"
+import CountDown from "./CountDown"
+import styles from "../index.module.less"
+import { formatMessage } from "@/core/locales"
 
 /**
  * 验证码登录
@@ -14,7 +14,7 @@ export interface ILoginParams {
 }
 
 const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
   function handleFinish(data: { [name: string]: any }) {
     // 避免接口报错后无法正常登录的问题
   }
@@ -23,7 +23,7 @@ const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
    * 切换登录方式
    */
   function handleClick() {
-    updateWay("pwd");
+    updateWay("pwd")
   }
 
   /**
@@ -70,7 +70,7 @@ const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
         </div>
       </Form>
     </div>
-  );
-};
+  )
+}
 
-export default LoginMessage;
+export default LoginMessage

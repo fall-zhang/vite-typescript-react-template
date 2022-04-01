@@ -1,3 +1,7 @@
 {
-  
+  "frontEnd": "Front end always in a journey",
+  "switchLan": "language control",
+  "switchToEn": "switch to English",
+  "switchToCh": "切换到中文",
+  "localLan": "The internationalization of this project is still working on"
 }

@@ -2,7 +2,7 @@ import React from "react"
 import "antd/dist/antd.less"
 import style from "./App.module.less"
 import RouterPage from "./router"
-import { LocaleProvider } from "./components/locales"
+import { LocaleProvider } from "./core/locales"
 
 /**
  * 入口
