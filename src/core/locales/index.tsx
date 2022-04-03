@@ -8,11 +8,16 @@ import antdZhCN from "antd/lib/locale/zh_CN"
 import antdEnUS from "antd/lib/locale/en_US"
 import en_US from "./lang/en_US.json"
 import zh_CN from "./lang/zh_CN.json"
-import { SupportLanguage, SingleLanguageSetting } from "./language"
+import type { SupportLanguage, MessageDescriptor, SingleLanguageSetting } from "./language"
 
 let globalInitLanguage: IntlShape
 // 默认语言
 const defaultLanguage = "zh-CN"
+
+// 添加默认本地语言
+if (!localStorage.getItem("current__locale")) {
+  localStorage.setItem("current__locale", defaultLanguage)
+}
 
 /**
  * 本地默认的语言信息
@@ -32,11 +37,6 @@ const langSupport: Record<SupportLanguage, SingleLanguageSetting> = {
   },
 }
 
-// 本地未存储语言配置，默认添加一个
-if (!localStorage.getItem("current__locale")) {
-  localStorage.setItem("current__locale", defaultLanguage)
-}
-
 /**
  * 获取当前使用的语言信息
  */
@@ -46,23 +46,46 @@ const getLocaleInfo = (): SingleLanguageSetting => {
 }
 
 /**
- * 获取当前选择的语言
+ * 获取当前使用的语言
  */
 function getLocale(): SupportLanguage {
   const result = localStorage.getItem("current__locale") || defaultLanguage
   return result as SupportLanguage
 }
-/**
- * 初始化当前语言
- * 通过 React 的 createIntl 初始化语言
- */
 
+/**
+ * 通过 React 的 createIntl 初始化当前语言信息
+ */
 const initLanguage = () => {
   const currentLocale = getLocale()
   if (!globalInitLanguage) {
     globalInitLanguage = createIntl(langSupport[currentLocale])
   }
   return createIntl(langSupport[currentLocale])
+}
+
+/**
+ * 切换语言
+ */
+const setLocale = (lang: SupportLanguage): void => {
+  if (typeof window.localStorage !== "undefined") {
+    window.localStorage.setItem("current__locale", lang || defaultLanguage)
+  }
+  window.location.reload()
+}
+
+/**
+ * 语言转换接口
+ * descriptor 传入的 id
+ */
+const formatMessage = (
+  descriptor: MessageDescriptor,
+  values?: Record<string, any>
+): any => {
+  if (!globalInitLanguage) {
+    globalInitLanguage = initLanguage()
+  }
+  return globalInitLanguage.formatMessage(descriptor, values)
 }
 
 /**
@@ -77,39 +100,6 @@ const LocaleProvider: React.FC = (props) => {
     </IntlProvider>
   )
 }
-
-
-/**
- * 切换语言
- */
-const setLocale = (lang: SupportLanguage): void => {
-  if (typeof window.localStorage !== "undefined") {
-    window.localStorage.setItem("current__locale", lang || defaultLanguage)
-  }
-  window.location.reload()
-}
-
-interface MessageDescriptor {
-  id?: string;
-  description?: string | any;
-  defaultMessage?: string;
-}
-
-/**
- * 语言转换
- * @param descriptor
- * @param values
- */
-const formatMessage = (
-  descriptor: MessageDescriptor,
-  values?: Record<string, any>
-): any => {
-  if (!globalInitLanguage) {
-    globalInitLanguage = initLanguage()
-  }
-  return globalInitLanguage.formatMessage(descriptor, values)
-}
-
 export {
   getLocaleInfo,
   setLocale,

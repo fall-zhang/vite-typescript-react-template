@@ -10,7 +10,16 @@ type SingleLanguageSetting = {
   antd: Locale,
   momentLocale: string,
 }
+
+interface MessageDescriptor {
+  id?: string;
+  description?: string | any;
+  defaultMessage?: string;
+}
+
+
 export {
   SingleLanguageSetting,
-  SupportLanguage
+  SupportLanguage,
+  MessageDescriptor
 }

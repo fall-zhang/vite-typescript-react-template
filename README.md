@@ -1,8 +1,11 @@
-## 启动
+# React + TypeScript + Vite Template
 
-- 依赖安装：yarn
-- 本地启动项目：yarn dev
-- 要登陆需要运行：yarn mock
+
+## 如何启动？
+
+- 依赖安装：`yarn` or `npm i`
+- 本地启动项目：`yarn` dev or `npm dev`
+- 要登陆需要运行：`yarn mock`
   - 不然无法登陆
 
 ## 教程

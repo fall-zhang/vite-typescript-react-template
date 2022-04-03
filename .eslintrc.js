@@ -19,13 +19,15 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
+    // js
+    "no-else-return": 2,//如果 if 语句里面有 return ,后面不能跟 else 语句
     "arrow-body-style": 0,
     "jsx-a11y/label-has-for": 0,
     "max-lines-per-function": [
       2,
       { max: 320, skipComments: true, skipBlankLines: true },
     ],
-    "semi": [2, "never"],//语句强制分号结尾
+    "semi": [2, "never"],//语句不使用分号结尾
     "no-confusing-arrow": 0,
     "no-nested-ternary": 0,
     "no-console": 0,

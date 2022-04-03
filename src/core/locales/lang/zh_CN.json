@@ -3,5 +3,8 @@
   "switchLan": "语言切换",
   "switchToEn": "Change to English",
   "switchToCh": "切换到中文",
-  "localLan": "本项目国际化基于"
+  "localLan": "本项目国际化基于",
+  "menu":{
+    "document":"文档"
+  }
 }
