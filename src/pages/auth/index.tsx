@@ -1,35 +1,21 @@
 import React from 'react'
 import { Button } from 'antd'
-import { AuthorizedButton } from '@/components/Authorized'
 import styles from './index.module.less'
+import { AuthContainer } from '@/core/authorized'
 
 const AuthPage: React.FC = () => {
   return (
-    <div style={{display:'flex',justifyContent:'space-around',alignContent:'center',}}>
+    <div style={{ display: 'flex', justifyContent: 'space-around', alignContent: 'center', }}>
       <div className={styles.noAuth}>
-        <span>无权限内容不展示</span>
-        <AuthorizedButton authority="hello">Hello world</AuthorizedButton>
-        <AuthorizedButton authority={['hello', 'word']}>
-          Hello world
-        </AuthorizedButton>
-        <AuthorizedButton
-          authority={['hello', 'word']}
-          render={() => <div>Hello world</div>}
-        />
+        <span>使用权限组件包裹</span>
+        <AuthContainer token='addAuth'>
+          <Button >Hello world</Button>
+        </AuthContainer>
       </div>
       <div className={styles.hasAuth}>
-        <div>有权限展示</div>
-        <AuthorizedButton authority="button">
-          <Button>button1</Button>
-        </AuthorizedButton>
-        <AuthorizedButton authority={['button', 'button1']}>
-          <Button>button1</Button>
-          <Button>button2</Button>
-        </AuthorizedButton>
-        <AuthorizedButton
-          authority={['button1', 'button2']}
-          render={() => <div>渲染组件</div>}
-        />
+        <div>不使用权限组件包裹</div>
+        <Button>button1</Button>
+        <Button>button2</Button>
       </div>
     </div>
   )
