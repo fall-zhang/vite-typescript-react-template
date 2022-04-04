@@ -11,11 +11,11 @@ import { LocaleProvider } from "./core/locales"
 const App: React.FC = function () {
   return (
     <div className={style.App}>
-      {/* <header className={style.AppHeader}> */}
-      <LocaleProvider>
-        <RouterPage />
-      </LocaleProvider>
-      {/* </header> */}
+      <header className={style.AppHeader}>
+        <LocaleProvider>
+          <RouterPage />
+        </LocaleProvider>
+      </header>
     </div>
   )
 }

@@ -1,11 +1,11 @@
-import React, { FC } from "react";
-import { Route, useHistory } from "react-router-dom";
-import { Result, Button } from "antd";
-import { RouteProps } from "react-router";
+import React, { FC } from "react"
+import { Route, useHistory } from "react-router-dom"
+import { Result, Button } from "antd"
+import { RouteProps } from "react-router"
 
 const PrivateRoute: FC<RouteProps> = (props) => {
-  const logged = sessionStorage.getItem("token");
-  const history = useHistory();
+  const logged = sessionStorage.getItem("token")
+  const history = useHistory()
 
   return logged ? (
     <Route {...props} />
@@ -20,7 +20,7 @@ const PrivateRoute: FC<RouteProps> = (props) => {
         </Button>
       }
     />
-  );
-};
+  )
+}
 
-export default PrivateRoute;
+export default PrivateRoute

@@ -1,22 +1,23 @@
-import React from "react";
-import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
+import React from "react"
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom"
 
-import HomePage from "@/pages/home";
-import LoginPage from "@/pages/login";
-import DocPage from "@/pages/doc";
-import PublicPage from "@/pages/publicComponents";
-import CustomPage from "@/pages/testPlugin";
-import LocalePage from "@/pages/locales";
-import IconPage from "@/pages/icon";
-import TableList from "@/pages/table";
-import TableEdit from "@/pages/table/edit";
-import TableDrag from "@/pages/table/drag";
-import PrivateRoute from "./components/privateRouter";
-import AuthPage from "@/pages/auth";
+import HomePage from "@/layouts/menus"
 
-const RouterPage = () => {
+import LoginPage from "@/pages/login"
+import DocPage from "@/pages/doc"
+import PublicPage from "@/pages/publicComponents"
+import CustomPage from "@/pages/testPlugin"
+import LocalePage from "@/pages/locales"
+import IconPage from "@/pages/icon"
+import TableList from "@/pages/table"
+import TableEdit from "@/pages/table/edit"
+import TableDrag from "@/pages/table/drag"
+import PrivateRoute from "./components/privateRouter"
+import AuthPage from "@/pages/auth"
+
+const RouterPage:React.FC = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Switch>
         <Route path={"/login"} component={LoginPage} />
         <Route
@@ -39,7 +40,7 @@ const RouterPage = () => {
           )}
         />
       </Switch>
-    </HashRouter>
-  );
-};
-export default RouterPage;
+    </BrowserRouter>
+  )
+}
+export default RouterPage

@@ -10,8 +10,8 @@ import en_US from "./lang/en_US.json"
 import zh_CN from "./lang/zh_CN.json"
 import type { SupportLanguage, MessageDescriptor, SingleLanguageSetting } from "./language"
 
-let globalInitLanguage: IntlShape
 // 默认语言
+let globalInitLanguage: IntlShape
 const defaultLanguage = "zh-CN"
 
 // 添加默认本地语言
@@ -54,6 +54,7 @@ function getLocale(): SupportLanguage {
 }
 
 /**
+ * 没有语言，或者出现错误的时候，初始化语言信息
  * 通过 React 的 createIntl 初始化当前语言信息
  */
 const initLanguage = () => {
@@ -89,7 +90,7 @@ const formatMessage = (
 }
 
 /**
- * antd 的国际化，和当前项目的国际化
+ * 国际化组件
  */
 const LocaleProvider: React.FC = (props) => {
   return (

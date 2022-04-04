@@ -1,7 +1,7 @@
-import React from "react";
-import { Button } from "antd";
-import { AuthorizedButton } from "@/components/Authorized";
-import styles from "./index.module.less";
+import React from "react"
+import { Button } from "antd"
+import { AuthorizedButton } from "@/components/Authorized"
+import styles from "./index.module.less"
 
 const AuthPage: React.FC = () => {
   return (
@@ -32,7 +32,7 @@ const AuthPage: React.FC = () => {
         />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default AuthPage;
+export default AuthPage

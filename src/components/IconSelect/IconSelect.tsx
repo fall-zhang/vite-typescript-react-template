@@ -1,11 +1,11 @@
-import React from "react";
-import { Input } from "antd";
-import classNames from "classnames";
-import { InputProps } from "antd/es/input";
-import Icon from "../Icon";
-import PopoverMenu from "../PopoverMenu";
-import { iconList } from "./utils";
-import styles from "./IconSelect.module.less";
+import React from "react"
+import { Input } from "antd"
+import classNames from "classnames"
+import { InputProps } from "antd/es/input"
+import Icon from "../Icon"
+import PopoverMenu from "../PopoverMenu"
+import { iconList } from "./utils"
+import styles from "./IconSelect.module.less"
 
 // Omit表示忽略掉InputProps接口中的value,onChange,readOnly属性
 // https://juejin.cn/post/6893071406481801224#heading-14
@@ -29,13 +29,13 @@ function IconSelect({
   getPopupContainer,
   ...props
 }: IconSelectProps) {
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = React.useState(false)
 
   function handleSelectIcon(item: string) {
     if (onChange) {
-      onChange(item);
+      onChange(item)
     }
-    setVisible(false);
+    setVisible(false)
   }
 
   return (
@@ -71,7 +71,7 @@ function IconSelect({
         {...props}
       />
     </PopoverMenu>
-  );
+  )
 }
 
-export default IconSelect;
+export default IconSelect

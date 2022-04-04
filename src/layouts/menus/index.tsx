@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styles from "./index.module.less"
 import { Layout, Menu, Tooltip } from "antd"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, } from "react-router-dom"
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -12,6 +12,7 @@ import { formatMessage } from "@/core/locales"
 const { Header, Content, Footer, Sider } = Layout
 const HomePage: React.FC = ({ children }) => {
   // 收缩侧边栏
+  const message = formatMessage({ id: "frontEnd" })
   const [collapsed, setCollapsed] = useState<boolean>(false)
   return (
     <Layout style={{ minHeight: "100vh", width: "100%" }}>
@@ -20,10 +21,12 @@ const HomePage: React.FC = ({ children }) => {
         collapsed={collapsed}
         onCollapse={(isOpen) => setCollapsed(isOpen)}
       >
-        {" "}
-        <Tooltip placement="right" title={"公众号：前端要努力"}>
-          <div className={styles.logo}>{formatMessage({ id: "frontEnd" })}</div>
+        <Tooltip placement="right" title={"together"}>
+          <div className={styles.title}>{message}</div>
         </Tooltip>
+        {/* <Tooltip placement="right" title={"公众号：前端要努力"}>
+          <div className={styles.logo}>{formatMessage({ id: "frontEnd" })}</div>
+        </Tooltip> */}
         <Menu
           theme="dark"
           defaultSelectedKeys={[`${useLocation().pathname}`]}
