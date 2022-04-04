@@ -1,7 +1,7 @@
 import HomePage from "@/layouts/menus"
 import LoginPage from "@/pages/login"
 
-import DocPage from "@/pages/doc"
+import DocPage from "@/pages/contact"
 import PublicPage from "@/pages/publicComponents"
 import CustomPage from "@/pages/testPlugin"
 import LocalePage from "@/pages/locales"

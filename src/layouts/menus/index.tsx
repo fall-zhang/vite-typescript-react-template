@@ -29,23 +29,23 @@ const HomePage: React.FC = () => {
         mode="inline"
       >
         <Menu.Item key="/doc" icon={<PieChartOutlined />}>
-          <Link to={"/doc"}>文档</Link>
+          <Link to={"/doc"}>{formatMessage({id:"menu-contact"})}</Link>
         </Menu.Item>
         <Menu.Item key="/icon" icon={<PieChartOutlined />}>
-          <Link to={"/icon"}>图标</Link>
+          <Link to={"/icon"}>{formatMessage({id:"menu-icon"})}</Link>
         </Menu.Item>
         <Menu.Item key="/auth" icon={<PieChartOutlined />}>
-          <Link to={"/auth"}>权限</Link>
+          <Link to={"/auth"}>{formatMessage({id:"menu-roots"})}</Link>
         </Menu.Item>
-        <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title="组件">
+        <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title={formatMessage({id:"menu-components"})}>
           <Menu.Item key="/custom">
             <Link to={"/custom"}>远程搜索框</Link>
           </Menu.Item>
         </Menu.SubMenu>
         <Menu.Item key="/locale" icon={<FileOutlined />}>
-          <Link to={"/locale"}> 国际化搭建</Link>
+          <Link to={"/locale"}>{formatMessage({id:"menu-i18n"})}</Link>
         </Menu.Item>
-        <Menu.SubMenu key="/table" icon={<DesktopOutlined />} title="表格">
+        <Menu.SubMenu key="/table" icon={<DesktopOutlined />} title={formatMessage({id:"menu-table"})}>
           <Menu.Item key="/table/base">
             <Link to={"/table/base"}>基础表格</Link>
           </Menu.Item>{" "}

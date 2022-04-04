@@ -12,8 +12,6 @@ const LocalePage: React.FC = () => {
   const onChangeLanguage = (e: RadioChangeEvent) => {
     setLocale(e.target.value) // 调用切换语言方法
   }
-  const document=  formatMessage({ id: "document" })
-  console.log(document)
   const local = getLocaleInfo().locale
   const [currentLang] = useState(local)
   return (

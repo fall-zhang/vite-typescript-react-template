@@ -4,5 +4,11 @@
   "switchToEn": "switch to English",
   "switchToCh": "切换到中文",
   "localLan": "The internationalization of this project is still working on",
-  "document": "Document"
+  "menu-contact": "Contact",
+  "menu-icon": "Icons",
+  "menu-roots": "Roots",
+  "menu-components": "Components",
+  "menu-i18n": "I18n",
+  "menu-form": "Form",
+  "menu-table": "table"
 }

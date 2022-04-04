@@ -4,7 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom"
 import HomePage from "@/layouts"
 
 import LoginPage from "@/pages/login"
-import DocPage from "@/pages/doc"
+import DocPage from "@/pages/contact"
 import PublicPage from "@/pages/publicComponents"
 import CustomPage from "@/pages/testPlugin"
 import LocalePage from "@/pages/locales"
