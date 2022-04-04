@@ -1,20 +1,20 @@
-import React from "react";
-import { useLocalStorageState } from "ahooks";
-import LoginPassword from "./components/LoginPassword";
-import LoginMessage from "./components/LoginMessage";
-import styles from "./index.module.less";
+import React from "react"
+import { useLocalStorageState } from "ahooks"
+import LoginPassword from "./components/LoginPassword"
+import LoginMessage from "./components/LoginMessage"
+import styles from "./index.module.less"
 
 const LoginPage: React.FC = () => {
-  const [loginWay, setLoginWay] = useLocalStorageState("login__Login__way", "");
-  const [way, setWay] = React.useState<string>(loginWay);
+  const [loginWay, setLoginWay] = useLocalStorageState("login__Login__way", "")
+  const [way, setWay] = React.useState<string>(loginWay)
 
   /**
    * 更新登录方式
    * @param name
    */
   function updateWay(name: string) {
-    setWay(name);
-    setLoginWay(name);
+    setWay(name)
+    setLoginWay(name)
   }
 
   return (
@@ -28,7 +28,7 @@ const LoginPage: React.FC = () => {
         {/*)}*/}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage

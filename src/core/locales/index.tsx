@@ -10,9 +10,9 @@ import en_US from "./lang/en_US.json"
 import zh_CN from "./lang/zh_CN.json"
 import type { SupportLanguage, MessageDescriptor, SingleLanguageSetting } from "./language"
 
-// 默认语言
-let globalInitLanguage: IntlShape
+// 默认语言和当前语言信息
 const defaultLanguage = "zh-CN"
+let globalInitLanguage: IntlShape
 
 // 添加默认本地语言
 if (!localStorage.getItem("current__locale")) {

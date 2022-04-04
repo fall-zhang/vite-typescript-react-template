@@ -12,14 +12,17 @@ import IconPage from "@/pages/icon"
 import TableList from "@/pages/table"
 import TableEdit from "@/pages/table/edit"
 import TableDrag from "@/pages/table/drag"
-import PrivateRoute from "./components/privateRouter"
-import AuthPage from "@/pages/auth"
+import PrivateRoute from "./privateRouter"
 
-const RouterPage:React.FC = () => {
+import AuthPage from "@/pages/auth"
+// import ErrorPage from '@/pages/err'
+
+const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path={"/login"} component={LoginPage} />
+        {/* <Route path={"/open"} component={import('@/pages/err/')} /> */}
         <Route
           path="/"
           render={() => (
@@ -39,6 +42,7 @@ const RouterPage:React.FC = () => {
             </HomePage>
           )}
         />
+        {/* <Route path={"/*"} component={ErrorPage} /> */}
       </Switch>
     </BrowserRouter>
   )
