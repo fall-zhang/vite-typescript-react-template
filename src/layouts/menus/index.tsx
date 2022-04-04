@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons"
 import { formatMessage } from "@/core/locales"
 
-const { Header, Content, Footer, Sider } = Layout
+const { Sider } = Layout
 const HomePage: React.FC = ({ children }) => {
   // 收缩侧边栏
   const message = formatMessage({ id: "frontEnd" })
@@ -21,12 +21,9 @@ const HomePage: React.FC = ({ children }) => {
         collapsed={collapsed}
         onCollapse={(isOpen) => setCollapsed(isOpen)}
       >
-        <Tooltip placement="right" title={"together"}>
+        <Tooltip placement="right" title={message}>
           <div className={styles.title}>{message}</div>
         </Tooltip>
-        {/* <Tooltip placement="right" title={"公众号：前端要努力"}>
-          <div className={styles.logo}>{formatMessage({ id: "frontEnd" })}</div>
-        </Tooltip> */}
         <Menu
           theme="dark"
           defaultSelectedKeys={[`${useLocation().pathname}`]}
@@ -62,14 +59,6 @@ const HomePage: React.FC = ({ children }) => {
           </Menu.SubMenu>
         </Menu>
       </Sider>
-      <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }} />
-        <Content style={{ margin: "16px 16px" }}>{children}</Content>
-        <Footer style={{ textAlign: "center" }}>
-          vite-react-template ©2021 Created by 公众号：前端要努力
-          ；微信号843655240
-        </Footer>
-      </Layout>
     </Layout>
   )
 }
