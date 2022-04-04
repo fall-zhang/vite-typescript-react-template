@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom"
 
-import HomePage from "@/layouts/menus"
+import HomePage from "@/layouts"
 
 import LoginPage from "@/pages/login"
 import DocPage from "@/pages/doc"
