@@ -4,9 +4,6 @@ import { Tooltip } from "antd"
 // import { $http } from "@/utils/reuqest"
 
 const DocPage: React.FC = ({ children }) => {
-  function onClick() {
-    window.open('')
-  }
   return (
     <div>
       <Tooltip placement="top" color={"plum"} title={"fellow me"}>

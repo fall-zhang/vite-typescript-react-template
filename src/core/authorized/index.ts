@@ -1,13 +1,9 @@
-import { useHistory } from "react-router-dom"
-import { $http } from '@/utils/reuqest'
+import AuthContainer from './component'
 
-async function isLogged():Promise<boolean> {
-  const history = useHistory()
-  const logged  = await $http.post('')
-  if (!logged){
-    history.push('/login')
-  }
-  return logged
+import { isSignIn } from './router'
+
+
+export {
+  isSignIn,
+  AuthContainer
 }
-
-export {isLogged }

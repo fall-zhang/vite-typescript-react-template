@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import type { IAuthorityType } from "./checkPermissions"
 import checkPermissions from "./checkPermissions"
 
@@ -6,11 +6,11 @@ interface AuthorizedProps {
   // 权限判定
   authority: IAuthorityType;
   // render
-  render?: () => React.ReactNode;
+  render?: () => React.ReactNode
   // 未匹配结果
-  noMatch?: React.ReactNode;
+  noMatch?: React.ReactNode
   // children
-  children?: React.ReactNode;
+  children?: React.ReactNode
 }
 
 /**

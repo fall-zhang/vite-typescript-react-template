@@ -1,10 +1,10 @@
-import Icon from "../../components/Icon";
-import React, { useState } from "react";
-import styles from "./index.module.less";
-import { Button, message, Space } from "antd";
-import { useStore } from "rediaox";
+import Icon from "../../components/Icon"
+import React, { useState } from "react"
+import styles from "./index.module.less"
+import { Button, message, Space } from "antd"
+import { useStore } from "rediaox"
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 const CustomPage: React.FC = ({ children }) => {
   const [state, actions] = useStore({
     state: {
@@ -13,34 +13,34 @@ const CustomPage: React.FC = ({ children }) => {
     reducers: {
       // 特性1：修改 draft
       increment(draft) {
-        draft.count += 1;
+        draft.count += 1
       },
       // 特性2：返回新状态
       decrement(draft) {
         return {
           count: draft.count - 1,
-        };
+        }
       },
       // 特性3：方法参数
       add(draft, count: number) {
-        draft.count += count;
+        draft.count += count
       },
       // 特性4：调用其他 reducer
       callOtherReducer(draft) {
-        this.add(draft, 10);
-        draft.count += 10;
+        this.add(draft, 10)
+        draft.count += 10
       },
       reset() {
         return {
           count: 0,
-        };
+        }
       },
     },
-  });
+  })
   async function asyncExecute() {
-    await sleep(1000);
-    actions.increment();
-    message.success("执行成功");
+    await sleep(1000)
+    actions.increment()
+    message.success("执行成功")
   }
 
   return (
@@ -54,7 +54,7 @@ const CustomPage: React.FC = ({ children }) => {
         异步增加
       </Button>
     </Space>
-  );
-};
+  )
+}
 
-export default CustomPage;
+export default CustomPage
