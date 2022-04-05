@@ -1,4 +1,4 @@
-import { $http } from "@/utils/reuqest"
+import { $http } from '@/utils/reuqest'
 
 /**
  * 登陆请求数据类型
@@ -24,5 +24,5 @@ export interface ILoginData {
  * @param params
  */
 export const loginApp = (params: ILogin): Promise<ILoginData> => {
-  return $http.get("/login", params)
+  return $http.get('/login', params)
 }
