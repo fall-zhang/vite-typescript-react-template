@@ -1,7 +1,7 @@
 /**
  * 当前环境变量
  */
-// export const whyEnv = import.meta.env.VITE_REACT_URL || "";
+export const whyEnv = import.meta.env.VITE_REACT_URL || ''
 /**
  * 接口地址
  * @description env 可为主要环境或自定义地址

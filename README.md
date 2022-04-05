@@ -1,47 +1,22 @@
 # Vite + React + TypeScript  Template
 
-
-## 如何启动？
+## 启动项目
 
 - 依赖安装：`yarn` or `npm i`
 - 本地启动项目：`yarn` dev or `npm dev`
-- 要登陆需要运行：`yarn mock`
-  - 不然无法登陆
+- 登陆务必运行：`yarn mock`
 
-## 技术栈前瞻
+## 技术栈
 
 - 模版：使用的是 vite 的官方模版 react 17+ typescript 4+
+- css: 项目中使用 less，并且 less 文件的命名都要以 module.less 结尾，以确保样式不会影响到其它组件
+- git 代码提交校验使用 husky（正在施工中）
+- eslint 分别约束 `.ts` 约束代码风格。
+- stylelint 约束 `css` 的样式的书写顺序，避免在样式编写中出现的一些错误。
 
-  ```
-  yarn create vite  why-react --template react-ts
-  ```
-
-- less: 项目中 less 文件的命名都要以 module.less 结尾
-
-  ```
-  yarn add less
-  ```
-
-- git 代码提交校验,
-
-  ```
-  yarn add yorkie lint-staged -D
-  ```
-
-  - husky
-    然后做了一些定制化的改动，使得钩子能从 package.json 的 "gitHooks"属性中读取。
-
-  - gitHooks Git Hooks 就是在 Git 执行特定事件（如 commit、push、receive 等）时触发运行的脚本，类似于“钩子函数”，没有设置可执行的钩子将被忽略。
-    在项目的 .git/hooks 目录中，有一些 .sample 结尾的钩子示例脚本，如果想启用对应的钩子，只需手动删除后缀，即可。（删除某一个 hook 的后缀 .sample 即可启用该 hook 脚本，默认是不启用的。）
-  - 在代码提交之前，进行代码规则检查能够确保进入 git 库的代码都是符合代码规则的。但是整个项目上运行 lint 速度会很慢，lint-staged 能够让 lint 只检测暂存区的文件
-
-- eslint 实现约束代码风格的，非常非常重要。
-- prettier
-
-- stylelint
-  - styleLint 是『一个强大的、现代化的 CSS 检测工具』, 与 ESLint 类似, 是通过定义一系列的编码风格规则帮助我们避免在样式表中出现错误.
-  - css 样式的书写顺序及原理——很重要！很重要！很重要！概括讲就是，它涉及了浏览器的渲染原理：reflow 和 repaint
-  - 参考[css 样式的书写顺序及原理——很重要！](https://blog.csdn.net/qq_36060786/article/details/79311244)
+- gitHooks Git Hooks 就是在 Git 执行特定事件（如 commit、push、receive 等）时触发运行的脚本，类似于“钩子函数”，没有设置可执行的钩子将被忽略。
+  在项目的 .git/hooks 目录中，有一些 .sample 结尾的钩子示例脚本，如果想启用对应的钩子，只需手动删除后缀，即可。（删除某一个 hook 的后缀 .sample 即可启用该 hook 脚本，默认是不启用的。）
+- 在代码提交之前，进行代码规则检查能够确保进入 git 库的代码都是符合代码规则的。但是整个项目上运行 lint 速度会很慢，lint-staged 能够让 lint 只检测暂存区的文件
 
 ## 项目目录划分
 
@@ -58,7 +33,7 @@
 
 ## 跨域
 
-- 除了配置下本地代理，发版上线前端是不处理跨域的，在绝大部分场景下。
+- 处理跨域的配置
   ```
   server: {
   port: 3001,
@@ -72,55 +47,10 @@
    },
   },
   ```
-- 线上 nginx
-
-## package.json 文件配置
-
-```
- "scripts": {
- "dev": "vite",
- "build": "tsc && vite build",
- "serve": "vite preview",
- // 主要配置 触发pre-commit 进行elint stylelint 格式校验
- "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
- "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
- "lint:prettier": "prettier --check "**/*" --end-of-line auto",
- "lint:style": "stylelint --fix "src/**/*.less" --syntax less",
- "lint-staged": "lint-staged",
- "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx "
- },
- // 使用yorkie 来自动触发识别 gitHooks这个钩子，然后执行pre-commit 然后在执行lint-staged
- "gitHooks": {
- "pre-commit": "lint-staged"
- },
- // lint-staged 配置 校验less,ts,tsx等文件有无不规范写法
- "lint-staged": {
- "*.less": "stylelint --syntax less",
- "*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
- "*.{js,jsx,tsx,ts,less,md,json}": [
-   "prettier --write"
-   ]
- },
-```
 
 ## json-server mock 数据
 
-- yarn add json-server -D
-- 在终端
-  ```
-  mkdir mock
-  cd mock
-  touch db.json
-  ```
-- 在 package.json 中的 scripts 中添加
-
-  ```
-  "mock": "json-server mock/db.json --port 3008"
-  ```
-
 - 然后运行命令 yarn mock 就可以在控制台成功访问到我们在 db.json 中配置的接口数据了
-
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/339210a9bb0242b1a36ff21b959a5f97~tplv-k3u1fbpfcp-zoom-1.image)
 
 ## 请求封装
 

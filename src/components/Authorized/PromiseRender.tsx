@@ -1,6 +1,6 @@
-import React from "react"
-import { isEqual } from "lodash"
-import Spinner from "@/components/Spinner"
+import React from 'react'
+import { isEqual } from 'lodash'
+import Spinner from '@/components/Spinner'
 
 export const isComponentClass = (
   component: React.ComponentClass | React.ReactNode
