@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom"
+import { useHistory } from 'react-router-dom'
 import { $http } from '@/utils/reuqest'
 
 async function isSignIn():Promise<boolean> {

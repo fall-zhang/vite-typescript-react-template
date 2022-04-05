@@ -1,10 +1,10 @@
-import React from "react";
-import { Button, Col, Form, Input, Row, Table, Select } from "antd";
-import { useAntdTable } from "ahooks";
-import { PaginatedParams } from "ahooks/lib/useAntdTable";
-import { ColumnsType } from "antd/lib/table";
+import React from 'react'
+import { Button, Col, Form, Input, Row, Table, Select } from 'antd'
+import { useAntdTable } from 'ahooks'
+import { PaginatedParams } from 'ahooks/lib/useAntdTable'
+import { ColumnsType } from 'antd/lib/table'
 
-const { Option } = Select;
+const { Option } = Select
 
 interface Item {
   name: {
@@ -12,7 +12,7 @@ interface Item {
   };
   email: string;
   phone: string;
-  gender: "male" | "female";
+  gender: 'male' | 'female';
 }
 
 interface Result {
@@ -24,49 +24,49 @@ const getTableData = (
   { current, pageSize }: PaginatedParams[0],
   formData: Record<string, any>
 ): Promise<Result> => {
-  let query = `page=${current}&size=${pageSize}`;
+  let query = `page=${current}&size=${pageSize}`
   Object.entries(formData).forEach(([key, value]) => {
     if (value) {
-      query += `&${key}=${value}`;
+      query += `&${key}=${value}`
     }
-  });
+  })
 
   return fetch(`https://randomuser.me/api?results=55&${query}`)
     .then((res) => res.json())
     .then((res) => ({
       total: res.info.results,
       list: res.results,
-    }));
-};
+    }))
+}
 
 const TableList: React.FC = () => {
-  const [form] = Form.useForm();
+  const [form] = Form.useForm()
 
   const { tableProps, search } = useAntdTable(getTableData, {
     defaultPageSize: 5,
     form,
-  });
+  })
 
-  const { type, changeType, submit, reset } = search;
+  const { type, changeType, submit, reset } = search
 
   const columns: ColumnsType<any> = [
     {
-      title: "姓名",
-      dataIndex: ["name", "last"],
+      title: '姓名',
+      dataIndex: ['name', 'last'],
     },
     {
-      title: "邮箱",
-      dataIndex: "email",
+      title: '邮箱',
+      dataIndex: 'email',
     },
     {
-      title: "电话",
-      dataIndex: "phone",
+      title: '电话',
+      dataIndex: 'phone',
     },
     {
-      title: "性别",
-      dataIndex: "gender",
+      title: '性别',
+      dataIndex: 'gender',
     },
-  ];
+  ]
 
   const advanceSearchForm = (
     <div>
@@ -89,7 +89,7 @@ const TableList: React.FC = () => {
           </Col>
         </Row>
         <Row>
-          <Form.Item style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Form.Item style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button type="primary" onClick={submit}>
               查询
             </Button>
@@ -103,11 +103,11 @@ const TableList: React.FC = () => {
         </Row>
       </Form>
     </div>
-  );
+  )
 
   const searchForm = (
     <div style={{ marginBottom: 16 }}>
-      <Form form={form} style={{ display: "flex", justifyContent: "flex-end" }}>
+      <Form form={form} style={{ display: 'flex', justifyContent: 'flex-end' }}>
         <Form.Item name="gender">
           <Select style={{ width: 120, marginRight: 16 }} onChange={submit}>
             <Option value="">全部</Option>
@@ -127,14 +127,14 @@ const TableList: React.FC = () => {
         </Button>
       </Form>
     </div>
-  );
+  )
 
   return (
     <div>
-      {type === "simple" ? searchForm : advanceSearchForm}
+      {type === 'simple' ? searchForm : advanceSearchForm}
       <Table columns={columns} rowKey="email" {...tableProps} />
     </div>
-  );
-};
+  )
+}
 
-export default TableList;
+export default TableList

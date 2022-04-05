@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import styles from "./index.module.less"
-import { Card, Radio } from "antd"
-import type { RadioChangeEvent } from "antd"
-import { formatMessage, setLocale, getLocaleInfo } from "@/core/locales"
+import React, { useState } from 'react'
+import styles from './index.module.less'
+import { Card, Radio } from 'antd'
+import type { RadioChangeEvent } from 'antd'
+import { formatMessage, setLocale, getLocaleInfo } from '@/core/locales'
 
 /**
  * 国际化页面
@@ -15,13 +15,13 @@ const LocalePage: React.FC = () => {
   const local = getLocaleInfo().locale
   const [currentLang] = useState(local)
   return (
-    <Card title={formatMessage({ id: "switchLan" })} style={{ width: "500px" }}>
+    <Card title={formatMessage({ id: 'switchLan' })} style={{ width: '500px' }}>
       <Radio.Group onChange={onChangeLanguage} value={currentLang}>
-        <Radio value={"zh-CN"}>{formatMessage({ id: "switchToCh" })}</Radio>
-        <Radio value={"en-US"}>{formatMessage({ id: "switchToEn" })}</Radio>
+        <Radio value={'zh-CN'}>{formatMessage({ id: 'switchToCh' })}</Radio>
+        <Radio value={'en-US'}>{formatMessage({ id: 'switchToEn' })}</Radio>
       </Radio.Group>
       <div className={styles.localLan}>
-        {formatMessage({ id: "localLan" })}react-intl
+        {formatMessage({ id: 'localLan' })}react-intl
       </div>
     </Card>
   )

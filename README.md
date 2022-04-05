@@ -1,4 +1,4 @@
-# React + TypeScript + Vite Template
+# Vite + React + TypeScript  Template
 
 
 ## 如何启动？
