@@ -7,3 +7,4 @@ yarn.lock
 *.log
 
 .eslintcache
+package-lock.json
