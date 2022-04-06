@@ -16,7 +16,8 @@
   },
   "lint-staged": {
     "*.less": "stylelint --syntax less",
-    "*.{js,jsx,tsx,ts,less,md,json}": [
+    "*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
+    "*.{less,md,json}": [
       "prettier --write"
     ]
   },
