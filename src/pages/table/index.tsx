@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Col, Form, Input, Row, Table, Select } from 'antd'
 import { useAntdTable } from 'ahooks'
 import { PaginatedParams } from 'ahooks/lib/useAntdTable'
-import { ColumnsType } from 'antd/lib/table'
+import type { ColumnType } from 'antd/lib/table'
 
 const { Option } = Select
 
@@ -49,23 +49,11 @@ const TableList: React.FC = () => {
 
   const { type, changeType, submit, reset } = search
 
-  const columns: ColumnsType<any> = [
-    {
-      title: '姓名',
-      dataIndex: ['name', 'last'],
-    },
-    {
-      title: '邮箱',
-      dataIndex: 'email',
-    },
-    {
-      title: '电话',
-      dataIndex: 'phone',
-    },
-    {
-      title: '性别',
-      dataIndex: 'gender',
-    },
+  const columns = [
+    { title: '姓名', dataIndex: 'name', key: 1 },
+    { title: '邮箱', dataIndex: 'email', key: 2 },
+    { title: '电话', dataIndex: 'phone', key: 3 },
+    { title: '性别', dataIndex: 'gender', key: 4 },
   ]
 
   const advanceSearchForm = (
