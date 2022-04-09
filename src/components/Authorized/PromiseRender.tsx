@@ -1,5 +1,5 @@
 import React from 'react'
-import { isEqual } from 'lodash'
+// import { isEqual } from 'lodash'
 import Spinner from '@/components/Spinner'
 
 export const isComponentClass = (
@@ -38,7 +38,7 @@ export default class PromiseRender<T, K> extends React.Component<
     nextState: PromiseRenderState
   ) => {
     const { component } = this.state
-    if (!isEqual(nextProps, this.props)) {
+    if (nextProps=== this.props) {
       this.setRenderComponent(nextProps)
     }
     return nextState.component !== component

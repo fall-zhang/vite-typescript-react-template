@@ -1,5 +1,5 @@
-import React from "react"
-import PromiseRender from "./PromiseRender"
+import React from 'react'
+import PromiseRender from './PromiseRender'
 
 export type IAuthorityType =
   | undefined
@@ -40,7 +40,7 @@ const checkPermissions = <T, K>(
     return Exception
   }
   // string 处理
-  if (typeof authority === "string") {
+  if (typeof authority === 'string') {
     if (permissions.some((item) => authority === item)) {
       return target
     }
@@ -53,7 +53,7 @@ const checkPermissions = <T, K>(
     )
   }
   // Function 处理
-  if (typeof authority === "function") {
+  if (typeof authority === 'function') {
     const promise = authority(permissions)
     // 函数执行后返回值是 Promise
     if ((promise as Promise<boolean>) instanceof Promise) {
@@ -70,7 +70,7 @@ const checkPermissions = <T, K>(
     }
     return Exception
   }
-  throw new Error("Unsupported parameters")
+  throw new Error('Unsupported parameters')
 }
 
 export default checkPermissions

@@ -5,7 +5,7 @@ import RouterPage from './router'
 import { LocaleProvider } from './core/locales'
 
 /**
- * 入口
+ * APP 入口
  * @constructor
  */
 const App: React.FC = function () {
