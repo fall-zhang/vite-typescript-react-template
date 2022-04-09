@@ -1,4 +1,4 @@
-import AuthContainer from './component'
+import AuthContainer from './AuthVisible'
 
 import { isSignIn } from './router'
 

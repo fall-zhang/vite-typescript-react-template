@@ -1,8 +1,13 @@
+/* 这个 layout
+  M |-----------
+  E |
+  N |  Content
+  U |
+*/
 import React from 'react'
 
 import Menu from './menus'
 import { Layout } from 'antd'
-
 const MainPage: React.FC = ({ children }) => {
   return (<>
     <Layout style={{ minHeight: '100vh', width: '100%' }}>

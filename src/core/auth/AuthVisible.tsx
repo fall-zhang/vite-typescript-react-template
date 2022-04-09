@@ -1,7 +1,7 @@
 import React from 'react'
 
 /**
- * 将组件用该组件包裹，只有符合认证，才能查看 children
+ * 将组件用该组件包裹，只有符合认证，才能查看组件内的 children
  * @param children
  * @returns
  */

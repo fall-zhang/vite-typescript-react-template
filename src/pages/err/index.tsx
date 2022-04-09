@@ -1,8 +1,8 @@
-import React, { FC } from "react"
-import { Result, Button } from "antd"
-import { useHistory } from "react-router-dom"
+import React, { FC } from 'react'
+import { Result, Button } from 'antd'
+import { useHistory } from 'react-router-dom'
 const ErrPage: FC = () => {
-  const logged = sessionStorage.token
+  // const logged = sessionStorage.token
   const history = useHistory()
   const TypeButton = (
     <Button type="primary" onClick={() => { history.push('/login') }}>
@@ -13,7 +13,7 @@ const ErrPage: FC = () => {
     <Result
       status="404"
       title="404"
-      subTitle={"当前页面不存在"}
+      subTitle={'当前页面不存在'}
       extra={
         <div>
           {TypeButton}
