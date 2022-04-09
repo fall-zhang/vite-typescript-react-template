@@ -3,29 +3,27 @@ import { Input } from 'antd'
 import classNames from 'classnames'
 import { InputProps } from 'antd/es/input'
 import Icon from '../Icon'
-import PopoverMenu from '../PopoverMenu'
-// import { iconList } from './utils'
+import PopoverMenu from '@/components/PopoverMenu'
 import styles from './IconSelect.module.less'
 const iconList = [
-  'English',
-  'Chinese',
-  'check',
-  'close',
-  'reload',
-  'menu',
-  'table',
-  'folder',
-  'message',
-  'copy',
+  'bookbianji',
+  'bookbianji1',
+  'bookbianji3',
+  'bookbianji4',
+  'bookdibu',
+  'bookdingbu',
+  'bookdibu1',
+  'bookfanhuidingbu',
+  'bookhuidingbu',
+  'bookhuidibu',
 ]
-// Omit表示忽略掉InputProps接口中的value,onChange,readOnly属性
-// https://juejin.cn/post/6893071406481801224#heading-14
-export interface IconSelectProps
+// 利用 Omit 先忽略 InputProps 接口中的 value, onChange, readOnly 属性，再添加所需的类型
+interface IconSelectProps
   extends Omit<InputProps, 'value' | 'onChange' | 'readOnly'> {
   // 受控属性
   value?: string;
   // 受控属性
-  onChange?: (value: any) => void;
+  onChange?: (value: string) => void;
   // 容器位置
   getPopupContainer?: (props: any) => HTMLElement;
 }
@@ -64,7 +62,7 @@ function IconSelect({
               className={classNames(styles.iconItem, {
                 [styles.active]: value === item,
               })}
-              type={`icon-${item}`}
+              type={item}
               onClick={() => handleSelectIcon(item)}
             />
           ))}
@@ -73,9 +71,9 @@ function IconSelect({
     >
       <Input
         placeholder={value ? undefined : '请选择'}
-        suffix={<Icon className={styles.filterIcon} type="icon-down" />}
+        suffix={<Icon className={styles.filterIcon} type="bookhuidibu" />}
         prefix={
-          value && <Icon className={styles.iconValue} type={`icon-${value}`} />
+          value && <Icon className={styles.iconValue} type={value} />
         }
         disabled={disabled}
         readOnly

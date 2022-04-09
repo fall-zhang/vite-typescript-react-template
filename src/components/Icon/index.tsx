@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { createFromIconfontCN } from '@ant-design/icons'
 import styles from './Icon.module.less'
 
-interface IconType extends React.HTMLAttributes<{className:string}> {
+export interface IconType extends React.HTMLAttributes<{className:string}> {
   type: string;
   // 图标尺寸，默认 normal
   size?: 'small' | 'normal' | 'large' | null;
@@ -11,9 +11,8 @@ interface IconType extends React.HTMLAttributes<{className:string}> {
   disabled?: boolean;
 }
 
-const FontIcon = createFromIconfontCN({
-  // 请给新图标一个合适的驼峰命名，并保证单词正确
-  scriptUrl: '//at.alicdn.com/t/font_2742219_5q5w02ov9d4.js',
+const IconFont = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_1882712_co33bk4ad1c.js',
 })
 
 const Icon: React.FC<IconType> = ({
@@ -23,7 +22,7 @@ const Icon: React.FC<IconType> = ({
   ...restProps
 }) => {
   return (
-    <FontIcon
+    <IconFont
       className={classNames(
         {
           [styles.large]: size === 'large',

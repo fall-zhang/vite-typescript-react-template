@@ -1,38 +1,37 @@
 import React from 'react'
 import { Popover } from 'antd'
-// import { useActivate, useUnactivate } from "react-activation";
 import classNames from 'classnames'
 import { PopoverProps } from 'antd/es/popover'
 import styles from './PopoverMenu.module.less'
 
-export interface PopoverMenuProps
+interface PopoverMenuProps
   extends Omit<PopoverProps, 'overlayClassName' | 'overlay'> {
   zIndex?: number;
   content: React.ReactNode;
 }
 
 /**
- * 具有选项条的 Popover
+ * menu 负责展示
  */
 function PopoverMenu({ zIndex, content, ...props }: PopoverMenuProps) {
-  const [canRender, setCanRender] = React.useState(true)
-
+  const [canRender] = React.useState(true)
   if (!canRender) {
     return null
   }
-
   return (
-    <Popover
-      getPopupContainer={(triggerNode) => triggerNode.parentNode as HTMLElement}
-      overlayClassName={styles.menuContent}
-      overlayStyle={{ zIndex }}
-      {...props}
-      content={<ul className={styles.menuList}>{content}</ul>}
-    />
+    <div>
+      <Popover
+        getPopupContainer={(triggerNode) => triggerNode.parentNode as HTMLElement}
+        overlayClassName={styles.menuContent}
+        overlayStyle={{ zIndex }}
+        {...props}
+        content={<ul className={styles.menuList}>{content}</ul>}
+      />
+    </div>
   )
 }
 
-export interface PopoverMenuItemProps extends React.LiHTMLAttributes<any> {
+interface PopoverMenuItemProps extends React.LiHTMLAttributes<{title:string}> {
   disabled?: boolean;
   children?: React.ReactNode;
 }

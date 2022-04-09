@@ -1,88 +1,46 @@
 import Icon from '@/components/Icon'
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './index.module.less'
 import IconSelect from '@/components/IconSelect'
+import type { IconType } from '@/components/Icon'
+interface IconItem extends IconType {
+  describe: string
+}
+const iconList: IconItem[] = [
+  { type: 'bookbianji', className: styles.iconItem, size: 'large', describe: '编辑' },
+  { type: 'bookbianji1', className: styles.iconItem, size: 'large', describe: '编辑' },
+  { type: 'bookbianji3', className: styles.iconItem, size: 'large', describe: '编辑' },
+  { type: 'bookbianji4', className: styles.iconItem, size: 'large', describe: '编辑' },
+  { type: 'bookdibu', className: styles.iconItem, size: 'large', describe: '底部' },
+  { type: 'bookdingbu', className: styles.iconItem, size: 'large', describe: '顶部' },
+  { type: 'bookdibu1', className: styles.iconItem, size: 'large', describe: '底部' },
+  { type: 'bookfanhuidingbu', className: styles.iconItem, size: 'large', describe: '上传' },
+  { type: 'bookhuidingbu', className: styles.iconItem, size: 'large', describe: '向上' },
+  { type: 'bookhuidibu', className: styles.iconItem, size: 'large', describe: '向下' },
+  { type: 'bookxiangmu1', className: styles.iconItem, size: 'large', describe: '项目' },
+  { type: 'bookxiangmu2', className: styles.iconItem, size: 'large', describe: '项目' },
+  { type: 'booktianqizitiku51', className: styles.iconItem, size: 'large', describe: '未知' },
+  { type: 'bookweizhi', className: styles.iconItem, size: 'large', describe: '未知' },
+  { type: 'bookshuben', className: styles.iconItem, size: 'large', describe: '书本' },
+  { type: 'bookhuidibu', className: styles.iconItem, size: 'large', describe: '向下' },
+]
 
 const IconPage: React.FC = () => {
   return (
     <div>
       <div className={styles.iconHeader}>antd 配合iconfont 使用</div>
       <div className={styles.iconBody}>
-        <div className={styles.iconItem}>
-          <Icon type="icon-English" size='large' />
-          <span>English</span>
-        </div>
-        <div className={styles.iconItem}>
-          <Icon type="icon-Chinese" size={'large'} />
-          <span>Chinese</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-check" size={'large'} />
-          <span>check</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-close" size={'large'} />
-          <span>close</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-reload" size={'large'} />
-          <span>reload</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-menu" size={'large'} />
-          <span>menu</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-table" size={'large'} />
-          <span>table</span>
-        </div>
-        <div className={styles.iconItem}>
-          <Icon type="icon-folder" size={'large'} />
-          <span>folder</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-message" size={'large'} />
-          <span>message</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-copy" size={'large'} />
-          <span>copy</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-user-space" size={'large'} />
-          <span>user-space</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-number" size={'large'} />
-          <span>number</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-circle" size={'large'} />
-          <span>circle</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-publish" size={'large'} />
-          <span>publish</span>
-        </div>
-
-        <div className={styles.iconItem}>
-          <Icon type="icon-empty" size={'large'} />
-          <span>empty</span>
-        </div>
+        {
+          iconList.map(item => (
+            <div className={styles.iconItem} key={item.type}>
+              <Icon type={item.type} size={item.size}></Icon>
+              <span>{item.describe}</span>
+            </div>
+          ))
+        }
       </div>
-      <div>
-        <IconSelect />
+      <div style={{height:''}}>
+        <IconSelect style={{width:'260px'}} />
       </div>
     </div>
   )
