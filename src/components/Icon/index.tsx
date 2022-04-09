@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { createFromIconfontCN } from '@ant-design/icons'
 import styles from './Icon.module.less'
 
-export interface IconType extends React.HTMLAttributes<any> {
+interface IconType extends React.HTMLAttributes<{className:string}> {
   type: string;
   // 图标尺寸，默认 normal
   size?: 'small' | 'normal' | 'large' | null;

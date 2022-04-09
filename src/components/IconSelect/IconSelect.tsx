@@ -1,16 +1,27 @@
-import React from "react"
-import { Input } from "antd"
-import classNames from "classnames"
-import { InputProps } from "antd/es/input"
-import Icon from "../Icon"
-import PopoverMenu from "../PopoverMenu"
-import { iconList } from "./utils"
-import styles from "./IconSelect.module.less"
-
+import React from 'react'
+import { Input } from 'antd'
+import classNames from 'classnames'
+import { InputProps } from 'antd/es/input'
+import Icon from '../Icon'
+import PopoverMenu from '../PopoverMenu'
+// import { iconList } from './utils'
+import styles from './IconSelect.module.less'
+const iconList = [
+  'English',
+  'Chinese',
+  'check',
+  'close',
+  'reload',
+  'menu',
+  'table',
+  'folder',
+  'message',
+  'copy',
+]
 // Omit表示忽略掉InputProps接口中的value,onChange,readOnly属性
 // https://juejin.cn/post/6893071406481801224#heading-14
 export interface IconSelectProps
-  extends Omit<InputProps, "value" | "onChange" | "readOnly"> {
+  extends Omit<InputProps, 'value' | 'onChange' | 'readOnly'> {
   // 受控属性
   value?: string;
   // 受控属性
@@ -40,7 +51,7 @@ function IconSelect({
 
   return (
     <PopoverMenu
-      trigger={["click"]}
+      trigger={['click']}
       visible={visible}
       onVisibleChange={!disabled ? setVisible : undefined}
       placement="bottomLeft"
@@ -61,7 +72,7 @@ function IconSelect({
       }
     >
       <Input
-        placeholder={value ? undefined : "请选择"}
+        placeholder={value ? undefined : '请选择'}
         suffix={<Icon className={styles.filterIcon} type="icon-down" />}
         prefix={
           value && <Icon className={styles.iconValue} type={`icon-${value}`} />
