@@ -17,6 +17,7 @@ const HomePage: React.FC = () => {
   return (
     <Sider
       collapsible
+      theme='light'
       collapsed={collapsed}
       onCollapse={(isOpen) => setCollapsed(isOpen)}
     >
@@ -24,7 +25,8 @@ const HomePage: React.FC = () => {
         <div className={styles.title}>{message}</div>
       </Tooltip>
       <Menu
-        theme="dark"
+        theme='light'
+        className={styles.menu}
         defaultSelectedKeys={[`${useLocation().pathname}`]}
         mode="inline"
       >

@@ -20,6 +20,9 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
+      '@C': path.resolve(__dirname, 'src/components'),
+      '@U': path.resolve(__dirname, 'src/utils'),
+      '@H': path.resolve(__dirname, 'src/hooks'),
     },
   },
   css: {
@@ -29,8 +32,8 @@ export default defineConfig({
         javascriptEnabled: true,
         // 重写 less 变量，定制样式
         modifyVars: {
-          '@primary-color': '#bae637',
-          '@primary-1': '#096dd9',
+          '@primary-color': '#1890ff',
+          // '@primary-1': '#096dd9',
           '@primary-2': '#1890ff',// 全局主色
           '@primary-3': '#46a6ff',
           '@primary-4': '#74bcff',

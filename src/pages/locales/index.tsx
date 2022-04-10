@@ -15,7 +15,7 @@ const LocalePage: React.FC = () => {
   const local = getLocaleInfo().locale
   const [currentLang] = useState(local)
   return (
-    <Card title={formatMessage({ id: 'switchLan' })} style={{ width: '500px' }}>
+    <Card title={formatMessage({ id: 'switchLan' })} style={{ width: '100%' }}>
       <Radio.Group onChange={onChangeLanguage} value={currentLang}>
         <Radio value={'zh-CN'}>{formatMessage({ id: 'switchToCh' })}</Radio>
         <Radio value={'en-US'}>{formatMessage({ id: 'switchToEn' })}</Radio>

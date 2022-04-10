@@ -1,5 +1,5 @@
 import Icon from '@/components/Icon'
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './index.module.less'
 import IconSelect from '@/components/IconSelect'
 import type { IconType } from '@/components/Icon'
@@ -22,10 +22,10 @@ const iconList: IconItem[] = [
   { type: 'booktianqizitiku51', className: styles.iconItem, size: 'large', describe: '未知' },
   { type: 'bookweizhi', className: styles.iconItem, size: 'large', describe: '未知' },
   { type: 'bookshuben', className: styles.iconItem, size: 'large', describe: '书本' },
-  { type: 'bookhuidibu', className: styles.iconItem, size: 'large', describe: '向下' },
 ]
 
 const IconPage: React.FC = () => {
+  const [selectIcon, setSelectIcon] = useState('')
   return (
     <div>
       <div className={styles.iconHeader}>antd 配合iconfont 使用</div>
@@ -39,8 +39,8 @@ const IconPage: React.FC = () => {
           ))
         }
       </div>
-      <div style={{height:''}}>
-        <IconSelect style={{width:'260px'}} />
+      <div style={{ height: '' }}>
+        <IconSelect style={{ width: '260px' }} value={selectIcon} onChange={(iconName) => setSelectIcon(iconName)} />
       </div>
     </div>
   )

@@ -15,7 +15,6 @@ const iconList = [
   'bookdibu1',
   'bookfanhuidingbu',
   'bookhuidingbu',
-  'bookhuidibu',
 ]
 // 利用 Omit 先忽略 InputProps 接口中的 value, onChange, readOnly 属性，再添加所需的类型
 interface IconSelectProps
