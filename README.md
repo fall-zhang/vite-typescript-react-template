@@ -1,10 +1,10 @@
-# Vite + React + TypeScript  Template
+# Vite + React + TypeScript Template
 
 ## 启动项目
 
 - 依赖安装：`yarn` or `npm i`
 - 本地启动项目：`yarn` dev or `npm dev`
-- 登陆务必运行：`yarn mock`
+- 登录务必运行：`yarn mock`
 
 ## 技术栈
 
@@ -107,7 +107,7 @@ export default umiRequest;
 
 ```
 /**
-* 登陆请求数据类型
+* 登录请求数据类型
 */
 export interface ILogin {
   userName: string;
@@ -126,7 +126,7 @@ token: string;
 }
 
 /**
-* 登陆接口
+* 登录接口
 * @param params
   */
   export const loginApp = (params: ILogin): Promise<ILoginData> => {
@@ -150,24 +150,23 @@ token: string;
 
 - 使用 react-intl 实现国际化，同时兼容 antd
 
-
 ## 路由
 
 - [react 路由看这个](https://reactrouter.com/web/example/url-params)
 
-- react 路由系统和 vue 大有不同，没有路由导航前钩子，配置登陆鉴权就要自己配置下，结合 token,
+- react 路由系统和 vue 大有不同，没有路由导航前钩子，配置登录鉴权就要自己配置下，结合 token,
 - 我们项目中路由的目的就是支持动态路由，路由权限，配置抽离，目前就是最简单的
 
 ![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3559713803e40f8bc317f2346bf5fcd~tplv-k3u1fbpfcp-watermark.image)
 
 ## 公共组件
 
-- 组件1：实现表单blah blah
+- 组件 1：实现表单 blah blah
 
 ### 如何使用 iconfont 的字体图标
 
 - 封装 icon，主要配合 antd createFromIconfontCN 直接引入 iconfont 中的字体图标，非常方便
-- 如下图所示直接登陆到 iconfont 网站生成对应 js 文件，在项目中直接用就好，很简单
+- 如下图所示直接登录到 iconfont 网站生成对应 js 文件，在项目中直接用就好，很简单
 
 - classNames 的使用 [npm 介绍](https://www.npmjs.com/package/classnames)
 
@@ -188,6 +187,7 @@ token: string;
       {...restProps}
     />
 ```
+
 ### 封装 icon 公共组件
 
 ```

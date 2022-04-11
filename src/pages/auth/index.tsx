@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'antd'
 import styles from './index.module.less'
-import { AuthContainer } from '@/core/auth'
+import { AuthContainer } from '@/core/roots'
 
 const AuthPage: React.FC = () => {
   return (

@@ -1,9 +1,9 @@
-import React from "react"
-import { Form, Button } from "antd"
-import { Link } from "react-router-dom"
-import CountDown from "./CountDown"
-import styles from "../index.module.less"
-import { formatMessage } from "@/core/locales"
+import React from 'react'
+import { Form, Button } from 'antd'
+import { Link } from 'react-router-dom'
+import CountDown from './CountDown'
+import styles from '../index.module.less'
+import { formatMessage } from '@/core/locales'
 
 /**
  * 验证码登录
@@ -23,7 +23,7 @@ const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
    * 切换登录方式
    */
   function handleClick() {
-    updateWay("pwd")
+    updateWay('pwd')
   }
 
   /**
@@ -41,14 +41,14 @@ const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
     <div className={styles.content}>
       <div className={styles.header}>
         <div className={styles.loginTitle}>
-          {formatMessage({ id: "loginBtn" })}
+          {formatMessage({ id: 'loginBtn' })}
         </div>
         <div
           onClick={handleClick}
           className={styles.changeWay}
-          style={{ width: 136, textAlign: "right" }}
+          style={{ width: 136, textAlign: 'right' }}
         >
-          {formatMessage({ id: "passwordLogin" })}
+          {formatMessage({ id: 'passwordLogin' })}
         </div>
       </div>
       <Form form={form} onFinish={handleFinish}>
@@ -61,11 +61,11 @@ const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
           size="large"
           block
         >
-          {formatMessage({ id: "LogIn" })}
+          {formatMessage({ id: 'LogIn' })}
         </Button>
         <div className={styles.register}>
           <Link to="/register">
-            {formatMessage({ id: "registeredAccount" })}
+            {formatMessage({ id: 'registeredAccount' })}
           </Link>
         </div>
       </Form>
