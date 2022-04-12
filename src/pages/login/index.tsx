@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useLocalStorageState } from 'ahooks'
-import LoginInputZone from './components/LoginInputZone'
+import LoginCard from './components/LoginCard'
 import styles from './index.module.less'
+import classNames from 'classnames'
 
 const LoginPage: React.FC = () => {
   const [loginWay, setLoginWay] = useLocalStorageState('login__Login__way', '')
@@ -17,11 +18,13 @@ const LoginPage: React.FC = () => {
   }
 
   return (
-    <div className={styles.loginContainer}>
-      <div className={styles.loginLogo} />
-      <div className={styles.loginForm}>
-        <LoginInputZone updateWay={updateWay} />
-      </div>
+    <div className={classNames(styles.loginContainer)}>
+      <div className={classNames(styles['block1'], styles.trangle)} />
+      <div className={classNames(styles.loginLogo, styles['rotate-60'])} />
+      <div className={classNames(styles.loginLogo, styles['rotate-60'])} />
+      {/* <div className={styles.loginForm}> */}
+      <LoginCard updateWay={updateWay} />
+      {/* </div> */}
     </div>
   )
 }
