@@ -6,15 +6,14 @@ import styles from './LoginCard.module.less'
 import type { ILoginParams } from './LoginMessage'
 
 /**
- * 登录界面中间的Card
+ * 登录界面中间的 Card
  */
 const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
   const history = useHistory()
-
   function handleFinish() {
-    loginApp({ userName: 'why', pwd: '123' }).then((res) => {
+    loginApp({ userName: 'fall', pwd: '123' }).then((res) => {
       if (res.code === 200) {
-        sessionStorage.setItem('token', '我有权限了')
+        sessionStorage.setItem('token', '配置权限成功')
         history.push('/home')
       } else {
         message.error('用户名或密码错误！')

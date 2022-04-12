@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Col, Form, Input, notification, Row, message } from 'antd'
+import { Button, Col, Form, Input, Row, } from 'antd'
 import classNames from 'classnames'
 import { FormInstance } from 'antd/es/form'
 import messageStyles from './LoginMessage.module.less'
@@ -54,28 +54,6 @@ const CountDown: React.FC<ICountDownParams> = ({
       .then((data: { [name: string]: any }) => {
         setDes(formatMessage({ id: 'sending' }))
         setClick(false)
-        // getCode({
-        //   phone: data.phone,
-        //   invitation_code: data.invitation_code,
-        //   type,
-        // })
-        //   .then((res) => {
-        //     // 0: 错误  1： 正确
-        //     if (res.success === "1") {
-        //       setDelay(1000);
-        //       message.success(formatMessage({ id: "SMSSend" }));
-        //     } else {
-        //       setDes(formatMessage({ id: "getCaptcha" }));
-        //       setDelay(null);
-        //       setClick(true);
-        //       notification.error({
-        //         message: formatMessage({ id: res.msg }),
-        //       });
-        //     }
-        //   })
-        //   .catch(() => {
-        //     setDelay(null);
-        //   });
       })
   }
 

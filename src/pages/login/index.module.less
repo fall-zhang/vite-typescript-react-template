@@ -3,25 +3,28 @@
 .loginContainer {
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   background-size: cover;
 }
 
-.block1 {
+.background {
   position: absolute;
-  top: 32px;
-  left: 64px;
-  background: cyan;
-}
+  height: 100%;
+  width: 100%;
+  .block1 {
+    position: absolute;
+    left: 0;
+    top: 200px;
+  }
 
-.block2 {
-  top: 32px;
-  left: 64px;
-  background: cyan;
+  .block2 {
+    top: 32px;
+    left: 64px;
+  }
 }
 
 .halfCircle {
@@ -44,7 +47,21 @@
 }
 
 .trangle {
-  border: 200px;
+  box-sizing: border-box;
+  border-top: 173px;
+  border-left: 100px;
+  border-right: 100px;
+  background-color: transparent;
+  border-color: orange transparent transparent transparent;
+  border-style: solid;
+}
+
+.trangle2 {
+  box-sizing: border-box;
+  border-top: 150px;
+  border-left: 150px;
+  border-right: 150px;
+  transform: rotateZ(45deg);
   background-color: transparent;
   border-color: orange transparent transparent transparent;
   border-style: solid;
