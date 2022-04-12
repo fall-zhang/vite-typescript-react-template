@@ -15,10 +15,9 @@ export interface ILoginParams {
 
 const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
   const [form] = Form.useForm()
-  function handleFinish(data: { [name: string]: any }) {
+  function handleFinish() {
     // 避免接口报错后无法正常登录的问题
   }
-
   /**
    * 切换登录方式
    */

@@ -64,10 +64,10 @@ const CountDown: React.FC<ICountDownParams> = ({
         rules={[
           {
             required: true,
-            message: formatMessage({ id: 'PhoneEmpty' }),
+            message: formatMessage({ id: '请输入手机号码' }),
           },
           {
-            message: formatMessage({ id: 'inputPhone' }),
+            message: formatMessage({ id: '手机号码格式错误' }),
             pattern: /^1[3456789]\d{9}$/,
           },
         ]}

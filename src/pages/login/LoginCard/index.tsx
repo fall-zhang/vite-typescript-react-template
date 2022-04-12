@@ -1,0 +1,54 @@
+import React from 'react'
+import { message } from 'antd'
+import { useHistory } from 'react-router-dom'
+import { loginApp } from '@/core/auth'
+import styles from './index.module.less'
+import type { ILoginParams } from '../components/LoginMessage'
+import {LoginForm} from '../components/LoginForm'
+/**
+ * 登录界面中间的 Card
+ */
+const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
+  const history = useHistory()
+  function handleFinish() {
+    loginApp({ userName: 'fall', pwd: '123' }).then((res) => {
+      if (res.code === 200) {
+        sessionStorage.setItem('token', '配置权限成功')
+        history.push('/home')
+      } else {
+        message.error('用户名或密码错误！')
+      }
+    })
+  }
+
+  function handleClick() {
+    updateWay('message')
+  }
+
+  return (
+    <div className={styles.content}>
+      <div className={styles.left}>
+        <div className={styles.header}>
+          <div className={styles.loginTitle}>登陆</div>
+          <div
+            onClick={handleClick}
+            className={styles.changeWay}
+            style={{ width: 99, textAlign: 'right' }}
+          >
+            验证码登陆
+          </div>
+        </div>
+        <LoginForm onSubmit={() => handleFinish()}></LoginForm>
+      </div>
+      <div className={styles.right}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  )
+}
+
+export default LoginInputZone

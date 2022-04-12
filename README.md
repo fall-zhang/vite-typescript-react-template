@@ -105,35 +105,6 @@ export default umiRequest;
 
 - 定义接口:要提前和后段沟通好入参数，出参数的格式，结合 ts 的类型提示，在其他地方调用的时候就可以直接看到接口定义的属性了，非常方便
 
-```
-/**
-* 登录请求数据类型
-*/
-export interface ILogin {
-  userName: string;
-  pwd: string;
-}
-
-/**
-* 返回数据类型
-* 要提前和后段定义好类型，等接口写完直接替换地址就好了
-*
-*/
-export interface ILoginData {
-code: number;
-message: string;
-token: string;
-}
-
-/**
-* 登录接口
-* @param params
-  */
-  export const loginApp = (params: ILogin): Promise<ILoginData> => {
-  return whyRequest.get("/login", params);
-  };
-```
-
 - 使用就很简单，直接调用，之后我们会配合，ahooks 中的 useRequest()使用
 
 ```

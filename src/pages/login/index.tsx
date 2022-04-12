@@ -1,16 +1,13 @@
 import React from 'react'
-import { useLocalStorageState } from 'ahooks'
-import LoginCard from './components/LoginCard'
+import LoginCard from './LoginCard'
 import styles from './index.module.less'
 import classNames from 'classnames'
-
+import { setLoginWay } from '@/core/auth'
 const LoginPage: React.FC = () => {
-  const [loginWay, setLoginWay] = useLocalStorageState('login__Login__way', '测试系统用户')
-
   function updateWay(name: string) {
     setLoginWay(name)
   }
-
+  // const []
   return (
     <>
       {/* <div className={styles.background}>
