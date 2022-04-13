@@ -120,7 +120,7 @@ const TableList: React.FC = () => {
   return (
     <div>
       {type === 'simple' ? searchForm : advanceSearchForm}
-      <Table columns={columns} rowKey="email" {...tableProps} />
+      {/* <Table columns={columns} rowKey="email" {...tableProps} /> */}
     </div>
   )
 }

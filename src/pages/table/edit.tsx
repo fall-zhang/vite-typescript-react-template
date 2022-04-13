@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Form, Input, Row, Table, Select } from 'antd'
+import { Button, Col, Form, Input, Row, Select } from 'antd'
 import { useAntdTable } from 'ahooks'
 import { PaginatedParams } from 'ahooks/lib/useAntdTable'
 
@@ -131,7 +131,7 @@ const TableEdit: React.FC = () => {
   return (
     <div>
       {type === 'simple' ? searchForm : advanceSearchForm}
-      <Table columns={columns} rowKey="email" {...tableProps} />
+      {/* <Table columns={columns} rowKey="email" {...tableProps} /> */}
     </div>
   )
 }

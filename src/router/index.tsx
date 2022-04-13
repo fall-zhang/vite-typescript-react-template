@@ -12,11 +12,10 @@ import IconPage from '@/pages/icon'
 import TableList from '@/pages/table'
 import TableEdit from '@/pages/table/edit'
 import TableDrag from '@/pages/table/drag'
-import PrivateRoute from './PrivateRouter'
+import PrivateRoute from './components/PrivateRouter'
 
 import AuthPage from '@/pages/auth'
 // import ErrorPage from '@/pages/err'
-
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>

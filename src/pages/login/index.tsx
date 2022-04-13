@@ -1,13 +1,14 @@
 import React from 'react'
 import LoginCard from './LoginCard'
-import styles from './index.module.less'
 import classNames from 'classnames'
 import { setLoginWay } from '@/core/auth'
+import styles from './index.module.less'
+
+// const LoginCard = _lazyLoad(()=>import('./LoginCard'))
 const LoginPage: React.FC = () => {
   function updateWay(name: string) {
     setLoginWay(name)
   }
-  // const []
   return (
     <>
       {/* <div className={styles.background}>
