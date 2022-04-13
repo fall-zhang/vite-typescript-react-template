@@ -53,6 +53,7 @@ const CustomPage: React.FC = ({ children }) => {
       <Button type="primary" onClick={asyncExecute}>
         异步增加
       </Button> */}
+      图表
     </Space>
   )
 }
