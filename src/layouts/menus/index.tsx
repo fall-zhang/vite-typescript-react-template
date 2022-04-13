@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './index.module.less'
-import { Layout, Menu, Tooltip } from 'antd'
+import { Menu, Tooltip } from 'antd'
 import { Link, useLocation, } from 'react-router-dom'
 import {
   DesktopOutlined,
@@ -9,18 +9,11 @@ import {
 } from '@ant-design/icons'
 import { formatMessage } from '@/core/locales'
 
-const { Sider } = Layout
 const HomePage: React.FC = () => {
   // 收缩侧边栏
   const message = formatMessage({ id: 'frontEnd' })
-  const [collapsed, setCollapsed] = useState<boolean>(false)
   return (
-    <Sider
-      collapsible
-      theme='light'
-      collapsed={collapsed}
-      onCollapse={(isOpen) => setCollapsed(isOpen)}
-    >
+    <>
       <Tooltip placement="right" title={message}>
         <div className={styles.title}>{message}</div>
       </Tooltip>
@@ -59,7 +52,7 @@ const HomePage: React.FC = () => {
           </Menu.Item>
         </Menu.SubMenu>
       </Menu>
-    </Sider>
+    </>
   )
 }
 

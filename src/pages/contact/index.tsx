@@ -1,12 +1,12 @@
-import React from "react"
-import styles from "./index.module.less"
-import { Tooltip } from "antd"
+import React from 'react'
+import styles from './index.module.less'
+import { Tooltip } from 'antd'
 // import { $http } from "@/utils/reuqest"
 
 const DocPage: React.FC = ({ children }) => {
   return (
     <div>
-      <Tooltip placement="top" color={"plum"} title={"fellow me"}>
+      <Tooltip placement="top" color={'plum'} title={'fellow me'}>
         <div className={styles.doc}>
           {children}
           <a href="#" >

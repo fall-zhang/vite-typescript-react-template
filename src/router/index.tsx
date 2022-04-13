@@ -5,7 +5,7 @@ import HomePage from '@/layouts'
 
 import LoginPage from '@/pages/login'
 import DocPage from '@/pages/contact'
-import PublicPage from '@/pages/publicComponents'
+// import PublicPage from '@/pages/publicComponents'
 import CustomPage from '@/pages/testPlugin'
 import LocalePage from '@/pages/locales'
 import IconPage from '@/pages/icon'
@@ -26,8 +26,7 @@ const RouterPage: React.FC = () => {
           render={() => (
             <HomePage>
               <Switch>
-                <PrivateRoute path="/doc" exact component={DocPage} />
-                <PrivateRoute path="/home" component={PublicPage} />
+                <PrivateRoute path="/contact" exact component={DocPage} />
                 <PrivateRoute path="/custom" component={CustomPage} />
                 <PrivateRoute path="/locale" component={LocalePage} />
                 <PrivateRoute path="/icon" component={IconPage} />
@@ -35,7 +34,7 @@ const RouterPage: React.FC = () => {
                 <PrivateRoute path="/table/edit" component={TableEdit} />
                 <PrivateRoute path="/table/drag" component={TableDrag} />
                 <PrivateRoute path="/auth" component={AuthPage} />
-                <Redirect to="/home" />
+                <Redirect to="/contact" />
               </Switch>
             </HomePage>
           )}
