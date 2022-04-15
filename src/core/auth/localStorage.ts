@@ -3,7 +3,6 @@ const setLoginWay = (way: string): boolean => {
     localStorage.setItem('login__Login__way', way)
   } catch (err) {
     throw new Error('配置本地认证信息错误：' + err)
-    return false
   }
   return true
 }

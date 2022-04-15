@@ -37,7 +37,7 @@ const HomePage: React.FC = () => {
         </Menu.Item>
         <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title={formatMessage({ id: 'menu-components' })}>
           <Menu.Item key="/custom">
-            <Link to={'/custom'}>远程搜索框</Link>
+            <Link to={'/custom'}>自定义表单</Link>
           </Menu.Item>
         </Menu.SubMenu>
         <Menu.Item key="/locale" icon={<TranslationOutlined />}>
