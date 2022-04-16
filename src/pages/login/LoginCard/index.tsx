@@ -18,6 +18,9 @@ const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
       } else {
         message.error('用户名或密码错误！')
       }
+    }).catch(err=>{
+      message.error('找不到服务器！(请开启JSON-Server)')
+      throw new Error(err)
     })
   }
 

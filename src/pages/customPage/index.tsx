@@ -1,4 +1,3 @@
-import Icon from '../../components/Icon'
 import React, { useState } from 'react'
 import styles from './index.module.less'
 import { Button, message, Space } from 'antd'
@@ -14,9 +13,10 @@ const CustomPage: React.FC = ({ children }) => {
   }
 
   return (
-    <Space>
-      自定义表单
-    </Space>
+    <>
+      <h1>自定义表单</h1>
+      来了老弟
+    </>
   )
 }
 

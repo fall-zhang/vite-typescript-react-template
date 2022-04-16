@@ -2,7 +2,7 @@
   "name": "vite-react-typescript-template",
   "version": "0.0.2",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "mock": "json-server mock/db.json --port 3030",
