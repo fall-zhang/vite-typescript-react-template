@@ -15,12 +15,15 @@ import TableDrag from '@/pages/table/drag'
 import PrivateRoute from './components/PrivateRouter'
 
 import AuthPage from '@/pages/auth'
-// import ErrorPage from '@/pages/err'
+import ErrorPage from '@/pages/err'
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={'/login'} component={LoginPage} />
+        <Route path={'/login'} exact component={LoginPage} />
+        <Route path={'/login/signin'} exact component={LoginPage} />
+        <Route path={'/login/forget'} exact component={LoginPage} />
+        <Route path={'/err'} component={ErrorPage} />
         <Route
           path="/"
           render={() => (
@@ -34,12 +37,11 @@ const RouterPage: React.FC = () => {
                 <PrivateRoute path="/table/edit" component={TableEdit} />
                 <PrivateRoute path="/table/drag" component={TableDrag} />
                 <PrivateRoute path="/auth" component={AuthPage} />
-                <Redirect to="/contact" />
+                <Redirect to="/err" />
               </Switch>
             </HomePage>
           )}
         />
-        {/* <Route path={"/*"} component={ErrorPage} /> */}
       </Switch>
     </BrowserRouter>
   )

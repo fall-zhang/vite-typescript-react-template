@@ -1,4 +1,4 @@
-import { LazyExoticComponent, ComponentType } from 'react'
+import React, { LazyExoticComponent, ComponentType } from 'react'
 // 路由meta
 export interface RouteMeta {
   title: string
@@ -9,7 +9,7 @@ export interface RouteMeta {
 export interface RouteParam {
   exact?: boolean
   path: string
-  component: LazyExoticComponent<ComponentType<any>>
+  component: LazyExoticComponent<ComponentType<unknown>>|React.FC
   meta: RouteMeta
   children?:RouteParam[]
 }

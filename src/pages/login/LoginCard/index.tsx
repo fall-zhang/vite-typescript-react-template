@@ -14,7 +14,7 @@ const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
     loginApp({ userName: 'fall', pwd: '123' }).then((res) => {
       if (res.code === 200) {
         sessionStorage.setItem('token', '配置权限成功')
-        history.push('/home')
+        history.push('/contact')
       } else {
         message.error('用户名或密码错误！')
       }
