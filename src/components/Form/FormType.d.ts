@@ -1,4 +1,4 @@
-type FormType = 'input'|'number'|'select'|'searchSelect'|'image'
+type FormType = 'input'|'number'|'select'|'searchSelect'|'image'|'slot'
 type Option = {
   label:string|number,
   value:number|string,
@@ -9,7 +9,7 @@ interface FormItem {
   label:string
   formType:FormType
   require:boolean
-  opions:Option[]
+  options:Option[]
 }
 
 export type {

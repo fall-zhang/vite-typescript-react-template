@@ -11,4 +11,5 @@ export interface RouteParam {
   path: string
   component: LazyExoticComponent<ComponentType<any>>
   meta: RouteMeta
+  children?:RouteParam[]
 }
