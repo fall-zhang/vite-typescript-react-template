@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { loginApp } from '@/core/auth'
 import styles from './index.module.less'
 import type { ILoginParams } from '../components/LoginMessage'
-import {LoginForm} from '../components/LoginForm'
+import { LoginForm } from '../components/LoginForm'
 /**
  * 登录界面中间的 Card
  */
@@ -18,7 +18,7 @@ const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
       } else {
         message.error('用户名或密码错误！')
       }
-    }).catch(err=>{
+    }).catch(err => {
       message.error('找不到服务器！(请开启JSON-Server)')
       throw new Error(err)
     })
@@ -54,4 +54,6 @@ const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
   )
 }
 
+export let fd = 'dfdf'
+fd = 12
 export default LoginInputZone
