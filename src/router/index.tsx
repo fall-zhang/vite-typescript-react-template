@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{lazy as lazyLoad} from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 
 import HomePage from '@/layouts'
@@ -15,7 +15,8 @@ import TableDrag from '@/pages/table/drag'
 import PrivateRoute from './components/PrivateRouter'
 
 import AuthPage from '@/pages/auth'
-import ErrorPage from '@/pages/err'
+// import ErrorPage from '@/pages/err'
+
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
@@ -23,7 +24,7 @@ const RouterPage: React.FC = () => {
         <Route path={'/login'} exact component={LoginPage} />
         <Route path={'/login/signin'} exact component={LoginPage} />
         <Route path={'/login/forget'} exact component={LoginPage} />
-        <Route path={'/err'} component={ErrorPage} />
+        <Route path={'/err'} component={lazyLoad(()=>import('@/pages/err'))} />
         <Route
           path="/"
           render={() => (
@@ -37,11 +38,12 @@ const RouterPage: React.FC = () => {
                 <PrivateRoute path="/table/edit" component={TableEdit} />
                 <PrivateRoute path="/table/drag" component={TableDrag} />
                 <PrivateRoute path="/auth" component={AuthPage} />
-                <Redirect to="/err" />
+                <Redirect to="/contact" />
               </Switch>
             </HomePage>
           )}
         />
+        {/* <Redirect to="/login" /> */}
       </Switch>
     </BrowserRouter>
   )

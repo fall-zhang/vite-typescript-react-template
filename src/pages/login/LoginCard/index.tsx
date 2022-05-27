@@ -54,6 +54,4 @@ const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
   )
 }
 
-export let fd = 'dfdf'
-fd = 12
 export default LoginInputZone

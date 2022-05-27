@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import reactRefresh from '@vitejs/plugin-react'
 import { apiAddress, proxyApi } from './src/config'
 import * as path from 'path'
 
@@ -58,4 +58,7 @@ export default defineConfig({
     },
   },
   plugins: [reactRefresh()],
+  // define: {
+  //   react: 'React', // 包名:"使用时的名称"
+  // }
 })

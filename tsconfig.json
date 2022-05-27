@@ -4,7 +4,6 @@
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
-    "skipLibCheck": false,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -12,8 +11,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
-    // "isolatedModules": true, 暂时设置为 false
     "isolatedModules": true,
+    "skipLibCheck": false, // 因为 Vite 中使用的 ESbuild 暂时不支持 enum，暂时设置为 false
     "noEmit": true,
     "jsx": "react",
     "paths": {

@@ -39,14 +39,14 @@ interface LiCode {
 type Func = (value:number)=>string
 let fuoo:ReturnType<Func> = '1'
 fuoo = '12'
-function GeneratRoute(routes: RouteParam[]) {
+// function GeneratRoute(routes: RouteParam[]) {
 
-  return (
-    <>
-      <Route path={route.path} component={route.compn}>
-      </Route>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <Route path={route.path} component={route.compn}>
+//       </Route>
+//     </>
+//   )
+// }
 
-export default GeneratRoute(variableRoute)
+// export default GeneratRoute(variableRoute)
