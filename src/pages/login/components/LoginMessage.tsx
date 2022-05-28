@@ -10,10 +10,10 @@ import { formatMessage } from '@/core/locales'
  */
 
 export interface ILoginParams {
-  updateWay: (name: string) => void;
+  signInWay: (name: string) => void;
 }
 
-const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
+const LoginMessage: React.FC<ILoginParams> = ({ signInWay }) => {
   const [form] = Form.useForm()
   function handleFinish() {
     // 避免接口报错后无法正常登录的问题
@@ -22,7 +22,7 @@ const LoginMessage: React.FC<ILoginParams> = ({ updateWay }) => {
    * 切换登录方式
    */
   function handleClick() {
-    updateWay('pwd')
+    signInWay('pwd')
   }
 
   /**

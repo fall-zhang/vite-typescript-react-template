@@ -12,7 +12,7 @@ const LoginPage: React.FC = () => {
   return (
     <>
       <div className={classNames(styles.loginContainer)}>
-        <LoginCard updateWay={updateWay} />
+        <LoginCard signInWay={updateWay} />
       </div>
     </>
   )

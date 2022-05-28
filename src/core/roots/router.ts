@@ -1,6 +1,8 @@
 import { useHistory } from 'react-router-dom'
 import { $http } from '@/utils/reuqest'
 
+// 获取当前用户权限--权限中的路由权限
+
 async function isSignIn():Promise<boolean> {
   const history = useHistory()
   const logged = await $http.post('')
@@ -10,4 +12,4 @@ async function isSignIn():Promise<boolean> {
   return logged
 }
 
-export { isSignIn }
+export default isSignIn

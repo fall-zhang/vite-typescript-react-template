@@ -58,7 +58,4 @@ export default defineConfig({
     },
   },
   plugins: [reactRefresh()],
-  // define: {
-  //   react: 'React', // 包名:"使用时的名称"
-  // }
 })

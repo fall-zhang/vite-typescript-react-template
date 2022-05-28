@@ -8,7 +8,7 @@ import { LoginForm } from '../components/LoginForm'
 /**
  * 登录界面中间的 Card
  */
-const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
+const LoginInputZone: React.FC<ILoginParams> = ({ signInWay }) => {
   const history = useHistory()
   function handleFinish() {
     loginApp({ userName: 'fall', pwd: '123' }).then((res) => {
@@ -24,8 +24,8 @@ const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
     })
   }
 
-  function handleClick() {
-    updateWay('message')
+  function handleClick(way:string) {
+    signInWay(way)
   }
 
   return (
@@ -34,7 +34,7 @@ const LoginInputZone: React.FC<ILoginParams> = ({ updateWay }) => {
         <div className={styles.header}>
           <div className={styles.loginTitle}>登陆</div>
           <div
-            onClick={handleClick}
+            onClick={()=>handleClick('code identify')}
             className={styles.changeWay}
             style={{ width: 99, textAlign: 'right' }}
           >

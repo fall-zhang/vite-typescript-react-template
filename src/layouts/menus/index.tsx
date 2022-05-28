@@ -35,6 +35,9 @@ const HomePage: React.FC = () => {
         <Menu.Item key="/auth" icon={<CreditCardOutlined />}>
           <Link to={'/auth'}>{formatMessage({ id: 'menu-roots' })}</Link>
         </Menu.Item>
+        <Menu.Item key="/works" icon={<CreditCardOutlined />}>
+          <Link to={'/works'}>{formatMessage({ id: 'menu-works' })}</Link>
+        </Menu.Item>
         <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title={formatMessage({ id: 'menu-components' })}>
           <Menu.Item key="/custom">
             <Link to={'/custom'}>自定义表单</Link>

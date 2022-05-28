@@ -2,12 +2,14 @@
  * 当前环境变量
  */
 // 浏览器中使用的是 import.meta
-// console.log(import.meta)
+// const devMeta = import.meta.env
+// console.log(devMeta)
+
 // console.log(process.env)
 // export const whyEnv = process.env.NODE_ENV.VITE_REACT_URL || ''
 /**
  * 接口地址
- * @description env 可为主要环境或自定义地址
+ * @description 测试地址，或者是其它地址，当前指向为：json-server 的地址
  */
 export const apiAddress = 'http://localhost:3030/'
 

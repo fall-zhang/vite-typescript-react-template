@@ -1,21 +1,23 @@
 # Vite + React + TypeScript Template
 
+> 完美不在于无以附加，而在于无可删减
+
 ## 启动项目
 
-- 依赖安装：`yarn` or `npm i`
-- 本地启动项目：`yarn` dev or `npm dev`
+- 依赖安装：`yarn` or `npm i` or `pnpm i`
+- 本地启动项目：`yarn dev` or `npm dev`
 - 登录务必运行：`yarn mock`
 
 ## 技术栈
 
 - 模版：使用的是 vite 的官方模版 react 17+ typescript 4+
-- css: 项目中使用 less，并且 less 文件的命名都要以 module.less 结尾，以确保样式不会影响到其它组件
-- git 代码提交校验使用 husky（正在施工中）
+- css: 项目中使用 less，并且 less 文件的命名都要以 `module.less` 结尾，确保样式不会影响到其它组件
+- git 代码提交校验使用 husky。
 - eslint 分别约束 `.ts` 约束代码风格。
 - stylelint 约束 `css` 的样式的书写顺序，避免在样式编写中出现的一些错误。
 
 - gitHooks Git Hooks 就是在 Git 执行特定事件（如 commit、push、receive 等）时触发运行的脚本，类似于“钩子函数”，没有设置可执行的钩子将被忽略。
-  在项目的 .git/hooks 目录中，有一些 .sample 结尾的钩子示例脚本，如果想启用对应的钩子，只需手动删除后缀，即可。（删除某一个 hook 的后缀 .sample 即可启用该 hook 脚本，默认是不启用的。）
+  在项目的 `.git/hooks` 目录中，有一些 `.sample` 结尾的钩子示例脚本，如果想启用对应的钩子，只需手动删除后缀，即可。（删除某一个 hook 的后缀 `.sample` 即可启用该 hook 脚本，默认是不启用的。）
 - 在代码提交之前，进行代码规则检查能够确保进入 git 库的代码都是符合代码规则的。但是整个项目上运行 lint 速度会很慢，lint-staged 能够让 lint 只检测暂存区的文件
 
 ## 项目目录划分
@@ -31,26 +33,40 @@
 - utils 工具类，不会掺杂任何逻辑，只是为了方便调用的工具文件
 - App.tsx 是用来向已经代理的端口上，添加合适的内容
 
-## 跨域
+## 开发进度
 
-- 处理跨域的配置
-  ```
-  server: {
-  port: 3001,
-  proxy: {
-   "/XXX": {
-     target: "https://XXX",
-     changeOrigin: true,
-     cookieDomainRewrite: "",
-     secure: false,
-     },
-   },
-  },
-  ```
+- [ ] 统一目录和菜单的配置
+- [ ] 实现项目的懒加载，打包内容优化
+- [ ] 把个人项目转换为 React 的可复用组件
+- [ ] 实现加载完成页面之后，注册 `service worker` 从服务端拉取数据
+- [ ] 自定义表单组件编写
+- [ ] 可编辑表格
+- [ ] 拖拽的使用
+
+## 配置文件
+
+`src/config.ts`
+
+```js
+/**
+ * 接口地址
+ * @description 测试地址，或者是其它地址，当前指向为：json-server 的地址
+ */
+export const apiAddress = "http://localhost:3030/";
+/**
+ * 开发环境下，代理前缀
+ */
+export const proxyApi = "/api";
+/**
+ * 接口前缀，开发环境中自动添加前缀
+ * 生产环境不需要代理，同时本地配置的代理在生产环境也是不能用的
+ */
+export const urlPrefix = process.env.NODE_ENV === "development" ? proxyApi : "";
+```
 
 ## json-server mock 数据
 
-- 然后运行命令 yarn mock 就可以在控制台成功访问到我们在 db.json 中配置的接口数据了
+运行命令 `yarn mock` 之后，就可以在控制台成功访问到我们在 `db.json` 中配置的接口数据了
 
 ## 请求封装
 
@@ -83,7 +99,7 @@ export const proxyApi = "/api";
 export const urlPrefix = process.env.NODE_ENV === "development" ? proxyApi : "";
 ```
 
-- 项目中用的 umi-request 这个库，目前我给配置的很少的东西，错误处理，中间件处理等等我的给删减了，刚开始不搞这么复杂
+- 项目中用的 umi-request 这个库，目前我给配置的很少的东西，错误处理，中间件处理等等我的给删减了。
 
 ```tsx
 // utils/request.ts
@@ -126,9 +142,7 @@ export default umiRequest;
 - [react 路由看这个](https://reactrouter.com/web/example/url-params)
 
 - react 路由系统和 vue 大有不同，没有路由导航前钩子，配置登录鉴权就要自己配置下，结合 token,
-- 我们项目中路由的目的就是支持动态路由，路由权限，配置抽离，目前就是最简单的
-
-![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c3559713803e40f8bc317f2346bf5fcd~tplv-k3u1fbpfcp-watermark.image)
+- 目前是最简单的路由
 
 ## 公共组件
 
@@ -205,10 +219,6 @@ export default React.memo(Icon);
 
 ```
 
-- 使用（截图中有 iconSelect 公共组件，此篇不做讲解）
-
-![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2791d90704854081b8428157c6f6a76d~tplv-k3u1fbpfcp-watermark.image)
-
 ## 权限的实现
 
 ### 权限的实现
@@ -227,5 +237,6 @@ export default React.memo(Icon);
 
 ## 参考
 
-|作者（文章名称）|链接|
-|前端要努力 |https://juejin.cn/user/1943592288395479|
+| 作者（文章名称） | 链接                                    |
+| ---------------- | --------------------------------------- |
+| 前端要努力       | https://juejin.cn/user/1943592288395479 |

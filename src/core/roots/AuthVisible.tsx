@@ -6,7 +6,7 @@ import React from 'react'
  * @returns
  */
 const AuthContainer: React.FC<{ token: string }> = ({ children, token }) => {
-  const currentList:string[] = ['']
+  const currentList:string[] = ['button']
   if (!currentList.includes(token)) {
     return (<div>
       {/* null */}

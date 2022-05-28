@@ -1,7 +1,7 @@
 import { $http } from '@/utils/reuqest'
 import { getLoginWay, setLoginWay } from './localStorage'
 /**
- * 登录认证：表示用户当前登录的认证状态
+ * 登录认证：用来作为用户当前登录的认证（所有用户统一使用的认证方式）
  */
 
 /**

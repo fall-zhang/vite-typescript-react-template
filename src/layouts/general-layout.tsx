@@ -7,6 +7,7 @@
 import React, { useState } from 'react'
 
 import Menu from './menus'
+import FooterText from './footers'
 import { Layout } from 'antd'
 const { Sider, Content, Footer } = Layout
 const MainPage: React.FC = ({ children }) => {
@@ -26,7 +27,7 @@ const MainPage: React.FC = ({ children }) => {
           {children}
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Vite-React-TypeScript-template ©2022 <span>|</span> Created by Fall
+          <FooterText/>
         </Footer>
       </Layout>
     </Layout>
