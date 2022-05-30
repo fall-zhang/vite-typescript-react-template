@@ -26,7 +26,7 @@ export interface ILoginData extends Record<string, unknown> {
  */
 
 const loginApp = (params: ILogin): Promise<ILoginData> => {
-  return $http.get('/login', params)
+  return $http.get('/get', params)
 }
 export {
   getLoginWay,
