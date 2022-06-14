@@ -1,43 +1,51 @@
-#img-origin {
-  height: 400px;
-  width: 300px;
-  position: absolute;
-  left: 100px;
-  top: 100px;
+.container {
+  // position: relative;
+  display: flex;
+}
+
+.img-origin {
+  position: relative;
+  // position: absolute;
+  left: 20px;
+  top: 10px;
   background-size: 100% 50%;
 }
 
-#img-origin img {
-  height: 100%;
-  width: 100%;
+.img-origin img {
+  // position: absolute;
+  min-width: 100px;
+  min-height: 100px;
+  max-height: 400px;
+  max-width: 300px;
   display: block;
 }
 
-#mask {
+.mask {
   display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
   height: 100px;
   width: 100px;
   border: 1px solid rgb(102, 102, 102);
   background-color: rgba(221, 160, 221, 0.4);
-  position: absolute;
   box-sizing: border-box;
-  left: 0;
-  top: 0;
 }
 
-#img-aft {
+.img-after {
   display: none;
   height: 400px;
   width: 400px;
   border: 1px solid black;
-  position: absolute;
-  left: 500px;
-  top: 100px;
+  // box-sizing: ;
+  left: 40px;
+  top: 10px;
+  position: relative;
   overflow: hidden;
 }
 
-#img-aft img {
+.img-after img {
   position: absolute;
-  height: 1600px;
-  width: 1200px;
+  left: 0;
+  top: 0;
 }

@@ -6,12 +6,11 @@
 
 - 依赖安装：`yarn` or `npm i` or `pnpm i`
 - 本地启动项目：`yarn dev` or `npm dev`
-- 登录务必运行：`yarn mock`
 
 ## 技术栈
 
 - 模版：使用的是 vite 的官方模版 react 17+ typescript 4+
-- css: 项目中使用 less，并且 less 文件的命名都要以 `module.less` 结尾，确保样式不会影响到其它组件
+- css: 项目中使用 less，并且如果是组件的 less 文件，的命名以 `module.less` 结尾，确保样式不会影响到其它组件
 - git 代码提交校验使用 husky。
 - eslint 分别约束 `.ts` 约束代码风格。
 - stylelint 约束 `css` 的样式的书写顺序，避免在样式编写中出现的一些错误。
@@ -35,14 +34,17 @@
 
 ## 开发进度
 
-- [ ] 统一目录和菜单的配置
-- [ ] mock 假数据
+- [ ] 统一目录和菜单的配置（注：现在路由可以采用 vite 中的 `import.meta.glob` 进行自动生成）
+- [x] mock 假数据
 - [ ] 实现项目的懒加载，打包内容优化
 - [ ] 把个人项目转换为 React 的可复用组件
+  - [x] 放大图片
+  - [ ]
 - [ ] 实现加载完成页面之后，注册 `service worker` 从服务端拉取数据
 - [ ] 自定义表单组件编写
 - [ ] 可编辑表格
 - [ ] 拖拽的使用
+- [ ] Threejs 的使用
 
 ## 配置文件
 
@@ -65,9 +67,25 @@ export const proxyApi = "/api";
 export const urlPrefix = process.env.NODE_ENV === "development" ? proxyApi : "";
 ```
 
-## json-server mock 数据
+## vite-plugin-mock 插件 mock 数据
 
 运行命令 `yarn mock` 之后，就可以在控制台成功访问到我们在 `db.json` 中配置的接口数据了
+
+```js
+  plugins: [
+      reactRefresh(),
+      viteMockServe({
+        ignore: /^\_/,
+        mockPath: 'mock',
+        localEnabled: !isBuild,
+        prodEnabled: isBuild,
+        injectCode: `
+          import { setupProdMockServer } from '../mock/_createProductionServer'
+          setupProdMockServer()
+          `
+      })
+    ],
+```
 
 ## 请求封装
 

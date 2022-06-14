@@ -1,55 +1,71 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
+import styles from './PictureBigger.module.less'
+import Animate from '@/asset/image/animate.png'
+// import type { HTML } from 'react'
+
+const image = new Image()
+image.src = Animate
+let bigImageDOM: HTMLDivElement | null = null
+let maskDOM: HTMLDivElement | null = null
+let imageWidth = 100
+let imageHeight = 100
+
 const PictureBigger: React.FC = () => {
-  const [showMask,setShowMask] = useState(false)
-  const getX = orgPic.offsetLeft//这是节点距离左侧长度
-  const getY = orgPic.offsetTop
-  function moveOrigin() {
-    mask.style.display = 'block'
-    afrPic.style.display = 'block'
-    mask.style.left = ev.clientX - getX - 50 + 'px'
-    mask.style.top = ev.clientY - getY - 50 + 'px'
-    //方块宽度的一半作为边界，即使鼠标超过边界，mask相应的位置也不会改变
-    if (ev.clientX - getX - 50 < 0) {
-      mask.style.left = '0'
+  const [showMask, setShowMask] = useState(false)
+  const image = new Image()
+  image.src = Animate
+  function moveOrigin(ev: any) {
+    if (!showMask) {
+      setShowMask(true)
     }
-    if (ev.clientX - getX + 50 > 300) {
-      mask.style.left = '200px'
+    const originPoint = { x: ev.target.offsetParent.offsetLeft, y: ev.target.offsetParent.offsetTop }
+    if (maskDOM && bigImageDOM) {
+      if (ev.clientX - originPoint.x - 50 < 0) {
+        bigImageDOM.style.marginLeft = '0'
+        maskDOM.style.left = '0'
+      } else if (ev.clientX - originPoint.x + 50 > imageWidth) {
+        maskDOM.style.left = imageWidth - 100 + 'px'
+        bigImageDOM.style.marginLeft = -4 * (imageWidth - 100) + 'px'
+      } else {
+        bigImageDOM.style.marginLeft = (-(ev.clientX - originPoint.x - 50) * 4) + 'px'
+        maskDOM.style.left = ev.clientX - originPoint.x - 50 + 'px'
+      }
+      if ((ev.clientY - originPoint.y + 50) < 100) {
+        bigImageDOM.style.marginTop = '0'
+        maskDOM.style.top = '0'
+      } else if ((ev.clientY - originPoint.y + 50) > imageHeight) {
+        bigImageDOM.style.marginTop = -4 * (imageHeight - 100) + 'px'
+        maskDOM.style.top = imageHeight - 100 + 'px'
+      } else {
+        bigImageDOM.style.marginTop = (-(ev.clientY - originPoint.y - 50) * 4) + 'px'
+        maskDOM.style.top = ev.clientY - originPoint.y - 50 + 'px'
+      }
     }
-    if ((ev.clientY - getY + 50) < 100) {
-      mask.style.top = '0'
-    }
-    if ((ev.clientY - getY + 50) > 400) {
-      mask.style.top = '300px'
-    }
-    //设置大照片的位置跟随鼠标变化
-    bigPic.style.marginTop = (-(ev.clientY - getY - 50) * 4) + 'px'
-    bigPic.style.marginLeft = (-(ev.clientX - getX - 50) * 4) + 'px'
-    if ((ev.clientY - getY - 50) < 0) {
-      bigPic.style.marginTop = '0px'
-    };
-    if ((ev.clientY - getY - 50) > 300) {
-      bigPic.style.marginTop = '-1200px'
-    };
-    if ((ev.clientX - getX - 50) < 0) {
-      bigPic.style.marginLeft = '0'
-    };
-    if ((ev.clientX - getX - 50) > 200) {
-      bigPic.style.marginLeft = '-800px'
-    };
   }
   function leaveOrigin() {
     setShowMask(false)
-    afrPic.style.display = 'none'
   }
-
+  function mouseOverImage(ev: any) {
+    if (ev.target.width) {
+      imageWidth = ev.target.width
+      imageHeight = ev.target.height
+    }
+    maskDOM = document.querySelector('.' + styles.mask)
+    bigImageDOM = document.querySelector('.' + styles['img-after'] + ' img')
+    if (bigImageDOM) {
+      bigImageDOM.style.height = 4 * imageHeight + 'px'
+      bigImageDOM.style.width = 4 * imageWidth + 'px'
+    }
+  }
   return (
-    <div>
-      <div onMouseMove={moveOrigin} onMouseLeave={leaveOrigin}>
-        <img src="@/asset/image/animate.png" alt="#" />
-        <div id="mask"></div>
+    <div className={styles.container}>
+      {(imageWidth < 100 || imageWidth < 100) ? <h2>请选择长宽大于100px的图片</h2> : ''}
+      <div className={styles['img-origin']} onMouseOver={(ev) => mouseOverImage(ev)} onMouseMove={(e) => moveOrigin(e)} onMouseLeave={leaveOrigin}>
+        <img src={Animate} />
+        <div className={styles.mask} style={{ display: showMask ? 'block' : 'none' }}></div>
       </div>
-      <div>
-        <img src="./img/5633.png" alt="#" />
+      <div className={styles['img-after']} style={{ display: showMask ? 'block' : 'none' }}>
+        <img src={Animate} alt="#" />
       </div>
     </div>
   )

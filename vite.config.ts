@@ -66,7 +66,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         ignore: /^\_/,
         mockPath: 'mock',
         localEnabled: !isBuild,
-        prodEnabled: isBuild,
+        prodEnabled: isBuild, // 在build时会将 mock 打包进去，以便测试
         injectCode: `
           import { setupProdMockServer } from '../mock/_createProductionServer'
           setupProdMockServer()
