@@ -31,7 +31,9 @@ function getAsyncRoute(neglect:Array<string>) {
   })
   return allRoute
 }
+
 const asyncRoutes = getAsyncRoute(['login','err'])
+console.log(asyncRoutes)
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>

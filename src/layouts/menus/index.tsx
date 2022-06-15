@@ -43,8 +43,8 @@ const HomePage: React.FC = () => {
             <Link to={'/custom'}>自定义表单</Link>
           </Menu.Item>
         </Menu.SubMenu>
-        <Menu.Item key="/locale" icon={<TranslationOutlined />}>
-          <Link to={'/locale'}>{formatMessage({ id: 'menu-i18n' })}</Link>
+        <Menu.Item key="/locales" icon={<TranslationOutlined />}>
+          <Link to={'/locales'}>{formatMessage({ id: 'menu-i18n' })}</Link>
         </Menu.Item>
         <Menu.SubMenu key="/table" icon={<TableOutlined />} title={formatMessage({ id: 'menu-table' })}>
           <Menu.Item key="/table/base">
