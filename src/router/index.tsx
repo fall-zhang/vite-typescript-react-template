@@ -1,24 +1,37 @@
-import React, { lazy as lazyLoad } from 'react'
+import React from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 
-import HomePage from '@/layouts'
+
+import PageLayout from '@/layouts'
 
 import LoginPage from '@/pages/login'
-// import DocPage from '@/pages/contact'
-const DocPage = lazyLoad(() => import('@/pages/contact'))
-// import PublicPage from '@/pages/publicComponents'
-import CustomPage from '@/pages/customPage'
-import LocalePage from '@/pages/locales'
-import WorksList from '@/pages/works'
-import IconPage from '@/pages/icon'
-import TableList from '@/pages/table'
-import TableEdit from '@/pages/table/edit'
-import TableDrag from '@/pages/table/drag'
 import PrivateRoute from './components/PrivateRouter'
-
-import AuthPage from '@/pages/auth'
 import ErrorPage from '@/pages/err'
-
+const allPages = import.meta.glob('@/pages/**/*.tsx')
+function getAsyncRoute(neglect:Array<string>) {
+  const oneFilePath:Array<string> = []
+  const allRoute:Record<string,string> = {}
+  Object.keys(allPages).forEach(item=>{
+    const routeInfo = item.split('/')
+    if(!neglect.includes(routeInfo[2])){
+      if(routeInfo.at(-1)==='index.tsx'){
+        oneFilePath.push(routeInfo[2])
+        const path = '/'+routeInfo[2]
+        allRoute[path] = item
+      }
+    }
+  })
+  const allNeglectPath = oneFilePath.concat(neglect)
+  Object.keys(allPages).map(item=>{
+    const routeInfo = item.split('/')
+    if(!allNeglectPath.includes(routeInfo[2])){
+      const path ='/'+ routeInfo[2]+'/' +routeInfo[3]
+      allRoute[path] = item
+    }
+  })
+  return allRoute
+}
+const asyncRoutes = getAsyncRoute(['login','err'])
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
@@ -30,20 +43,16 @@ const RouterPage: React.FC = () => {
         <Route
           path="/"
           render={() => (
-            <HomePage>
+            <PageLayout>
               <Switch>
-                <PrivateRoute path="/contact" exact component={DocPage} />
-                <PrivateRoute path="/custom" component={CustomPage} />
-                <PrivateRoute path="/locale" component={LocalePage} />
-                <PrivateRoute path="/icon" component={IconPage} />
-                <PrivateRoute path="/table/base" component={TableList} />
-                <PrivateRoute path="/table/edit" component={TableEdit} />
-                <PrivateRoute path="/table/drag" component={TableDrag} />
-                <PrivateRoute path="/works" component={WorksList} />
-                <PrivateRoute path="/auth" component={AuthPage} />
-                <Redirect to="/contact" />
+                {
+                  Object.entries(asyncRoutes).map(item => {
+                    return (<PrivateRoute key={item[0]} path={item[0]} exact component={React.lazy(() => import(item[1]))} />)
+                  })
+                }
+                <Redirect to='/contact' />
               </Switch>
-            </HomePage>
+            </PageLayout>
           )}
         />
         {/* <Redirect to="/login" /> */}

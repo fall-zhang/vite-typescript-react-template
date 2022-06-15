@@ -1,6 +1,7 @@
 import React from 'react'
 import { Tabs } from 'antd'
 import PictureBigger from './list/PictureBigger'
+import OneClock from './list/OneClock'
 const { TabPane } = Tabs
 const WorkPage: React.FC = () => {
   function onChange(str: string) {
@@ -12,8 +13,8 @@ const WorkPage: React.FC = () => {
         <TabPane tab="图片放大" key="1">
           <PictureBigger />
         </TabPane>
-        <TabPane tab="Tab 2" key="2">
-          Content of Tab Pane 2
+        <TabPane tab="时钟" key="2">
+          <OneClock/>
         </TabPane>
         <TabPane tab="Tab 3" key="3">
           Content of Tab Pane 3
