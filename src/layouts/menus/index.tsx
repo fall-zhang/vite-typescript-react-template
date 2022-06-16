@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './index.module.less'
 import { Menu, Tooltip } from 'antd'
 import { Link, useLocation, } from 'react-router-dom'
@@ -39,8 +39,8 @@ const HomePage: React.FC = () => {
           <Link to={'/works'}>{formatMessage({ id: 'menu-works' })}</Link>
         </Menu.Item>
         <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title={formatMessage({ id: 'menu-components' })}>
-          <Menu.Item key="/custom">
-            <Link to={'/custom'}>自定义表单</Link>
+          <Menu.Item key="/form">
+            <Link to={'/form'}>自定义表单</Link>
           </Menu.Item>
         </Menu.SubMenu>
         <Menu.Item key="/locales" icon={<TranslationOutlined />}>
