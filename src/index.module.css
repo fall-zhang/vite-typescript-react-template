@@ -25,6 +25,7 @@ code {
     'Courier New',
     monospace;
 }
+
 .App {
   text-align: center;
 }
@@ -42,7 +43,7 @@ code {
 
 .AppHeader {
   /* background-color: #676e7b; */
-  background: url('@/asset/image/login-background.jpg') center center/100%;
+  /* background: url('@/asset/image/login-background.jpg') center center/100%; */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

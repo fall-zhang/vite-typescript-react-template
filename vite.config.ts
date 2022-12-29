@@ -1,6 +1,5 @@
 // import { defineConfig } from 'vite'
 import reactRefresh from '@vitejs/plugin-react'
-import { viteMockServe } from 'vite-plugin-mock'
 import { apiAddress, proxyApi } from './src/config'
 import * as path from 'path'
 import type { ConfigEnv, UserConfig } from 'vite'
@@ -16,17 +15,17 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
           changeOrigin: true,
           cookieDomainRewrite: '',
           secure: false,
-          rewrite: (p) => p.replace(/^\/api/, ''),
-        },
-      },
+          rewrite: (p) => p.replace(/^\/api/, '')
+        }
+      }
     },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
         '@C': path.resolve(__dirname, 'src/components'),
         '@U': path.resolve(__dirname, 'src/utils'),
-        '@H': path.resolve(__dirname, 'src/hooks'),
-      },
+        '@H': path.resolve(__dirname, 'src/hooks')
+      }
     },
     css: {
       preprocessorOptions: {
@@ -55,23 +54,13 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
             '@border-radius-base': '2px', // 组件/浮层圆角
             '@border-color-base': '#d9d9d9', // 边框色
             '@box-shadow-base':
-              '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),0 9px 28px 8px rgba(0, 0, 0, 0.05)',
-          },
-        },
-      },
+              '0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),0 9px 28px 8px rgba(0, 0, 0, 0.05)'
+          }
+        }
+      }
     },
     plugins: [
-      reactRefresh(),
-      viteMockServe({
-        ignore: /^\_/,
-        mockPath: 'mock',
-        localEnabled: !isBuild,
-        prodEnabled: isBuild, // 在build时会将 mock 打包进去，以便测试
-        injectCode: `
-          import { setupProdMockServer } from '../mock/_createProductionServer'
-          setupProdMockServer()
-          `
-      })
-    ],
+      reactRefresh()
+    ]
   }
 }

@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { Result, Button } from 'antd'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import './index.module.less'
 const ErrPage: FC = () => {
   const logged = sessionStorage.token
-  const history = useHistory()
+  // const history = useHistory()
   const TypeButton = (
     <Button type="primary" key="login" onClick={() => { history.push('/login') }}>
       跳转到登陆

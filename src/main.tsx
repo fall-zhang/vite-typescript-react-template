@@ -1,19 +1,17 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import './index.module.css'
 import style from './index.module.css'
-import 'antd/dist/antd.less'
+import 'antd/dist/reset.css'
 import RouterPage from './router'
-import { LocaleProvider } from './core/locales'
-ReactDOM.render(
-  <React.StrictMode>
-    <div className={style.App}>
-      <header className={style.AppHeader}>
-        <LocaleProvider>
-          <RouterPage />
-        </LocaleProvider>
-      </header>
-    </div>
-  </React.StrictMode>,
-  document.getElementById('root') as ReactDOM.Container
-)
+// import { LocaleProvider } from './core/locales'
+const container = document.getElementById('root')!
+const root = createRoot(container)
+root.render(<React.StrictMode>
+  <div className={style.App}>
+    <header className={style.AppHeader}>
+      <RouterPage />
+      {/* {'people needs fath'} */}
+    </header>
+  </div>
+</React.StrictMode>)

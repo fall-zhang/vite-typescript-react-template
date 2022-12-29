@@ -1,13 +1,12 @@
-import { useHistory } from 'react-router-dom'
 import { $http } from '@/utils/reuqest'
 
 // 获取当前用户权限--权限中的路由权限
 
 async function isSignIn():Promise<boolean> {
-  const history = useHistory()
+  // const history = useHistory()
   const logged = await $http.post('')
   if (!logged){
-    history.push('/login')
+    // history.push('/login')
   }
   return logged
 }

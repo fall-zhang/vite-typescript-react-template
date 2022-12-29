@@ -1,25 +1,8 @@
 import React, { useState } from 'react'
-import { Table } from 'antd'
-import {
-  SortableContainer,
-  SortableElement,
-  SortableHandle,
-} from 'react-sortable-hoc'
-import { MenuOutlined } from '@ant-design/icons'
+import { Table } from 'antd/lib'
 // import { arrayMoveImmutable } from "array-move";
 import { ColumnsType } from 'antd/lib/table'
 
-const DragHandle = SortableHandle(() => {
-  return <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />
-})
-const SortableItem = SortableElement((props: React.AllHTMLAttributes<any>) => (
-  <tr {...props} />
-))
-const SortableContainers = SortableContainer(
-  (props: React.AllHTMLAttributes<any>) => {
-    return <tbody {...props} />
-  }
-)
 const columns: ColumnsType<any> = [
   {
     title: 'Sort',
@@ -27,22 +10,22 @@ const columns: ColumnsType<any> = [
     width: 30,
     className: 'drag-visible',
     render: () => {
-      return <DragHandle />
-    },
+      return <div />
+    }
   },
   {
     title: 'Name',
     dataIndex: 'name',
-    className: 'drag-visible',
+    className: 'drag-visible'
   },
   {
     title: 'Age',
-    dataIndex: 'age',
+    dataIndex: 'age'
   },
   {
     title: 'Address',
-    dataIndex: 'address',
-  },
+    dataIndex: 'address'
+  }
 ]
 const data = [
   {
@@ -50,29 +33,29 @@ const data = [
     name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
-    index: 0,
+    index: 0
   },
   {
     key: '2',
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
-    index: 1,
+    index: 1
   },
   {
     key: '3',
     name: 'Joe Black',
     age: 32,
     address: 'Sidney No. 1 Lake Park',
-    index: 2,
-  },
+    index: 2
+  }
 ]
 
 const TableDrag: React.FC = () => {
   const [dataSource, setDataSource] = useState<any>(data)
   const onSortEnd = ({
     oldIndex,
-    newIndex,
+    newIndex
   }: {
     oldIndex: number;
     newIndex: number;
@@ -89,11 +72,7 @@ const TableDrag: React.FC = () => {
 
   const DraggableContainer = (props: React.AllHTMLAttributes<any>) => {
     return (
-      <SortableContainers
-        useDragHandle
-        disableAutoscroll
-        helperClass="row-dragging"
-        onSortEnd={onSortEnd}
+      <div
         {...props}
       />
     )
@@ -104,7 +83,7 @@ const TableDrag: React.FC = () => {
     const index = dataSource.findIndex(
       (x: any) => x.index === restProps['data-row-key']
     )
-    return <SortableItem index={index} {...restProps} />
+    return <div {...restProps} />
   }
   return (
     <Table
@@ -115,8 +94,8 @@ const TableDrag: React.FC = () => {
       components={{
         body: {
           wrapper: DraggableContainer,
-          row: DraggableBodyRow,
-        },
+          row: DraggableBodyRow
+        }
       }}
     />
   )

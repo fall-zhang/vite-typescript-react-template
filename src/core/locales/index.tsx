@@ -27,14 +27,14 @@ const langSupport: Record<SupportLanguage, SingleLanguageSetting> = {
     locale: 'en-US',
     messages: en_US,
     antd: antdEnUS,
-    momentLocale: '',
+    momentLocale: ''
   },
   'zh-CN': {
     locale: 'zh-CN',
     messages: zh_CN,
     antd: antdZhCN,
-    momentLocale: 'zh-cn',
-  },
+    momentLocale: 'zh-cn'
+  }
 }
 
 /**

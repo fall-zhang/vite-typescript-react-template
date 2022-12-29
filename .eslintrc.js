@@ -2,20 +2,20 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    node: true,
+    node: true
   },
   extends: [
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
+    'prettier'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
@@ -25,7 +25,7 @@ module.exports = {
     'jsx-a11y/label-has-for': 0,
     'max-lines-per-function': [
       2,
-      { max: 320, skipComments: true, skipBlankLines: true },
+      { max: 320, skipComments: true, skipBlankLines: true }
     ],
     semi: [2, 'never'], //语句不使用分号结尾
     'no-confusing-arrow': 0,
@@ -34,7 +34,7 @@ module.exports = {
     'no-debugger': 1, //使用 debugger 会警告
     'no-multiple-empty-lines': [2, { max: 2 }], // 空行最多不能超过2行
     'no-multi-spaces': 2, // 不能用多余的空格
-    'no-trailing-spaces': 1, // 一行结束后面不要有空格
+    'no-trailing-spaces': 2, // 一行结束后面不要有空格
     'eol-last': 0, // 文件以单一的换行符结束
     eqeqeq: 1, //必须使用全等
     'no-proto': 1, // 禁止使用__proto__属性
@@ -43,10 +43,11 @@ module.exports = {
     // 'consistent-this': [2, 'that'],// this别名
     'no-param-reassign': [
       2,
-      { props: true, ignorePropertyModificationsFor: ['draft'] },
+      { props: true, ignorePropertyModificationsFor: ['draft'] }
     ],
     'react/no-this-in-sfc': 0,
     'react/prop-types': 0,
-    'react/display-name': 'off',
-  },
+    'comma-dangle': ['error', 'never'], // 最后一个属性不允许有逗号
+    'react/display-name': 'off'
+  }
 }
