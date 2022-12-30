@@ -1,6 +1,6 @@
 import React from 'react'
 import { message } from 'antd'
-// import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { loginApp } from '@/core/auth'
 import styles from './index.module.less'
 import type { ILoginParams } from '../components/LoginMessage'
@@ -9,22 +9,23 @@ import { LoginForm } from '../components/LoginForm'
  * 登录界面中间的 Card
  */
 const LoginInputZone: React.FC<ILoginParams> = ({ signInWay }) => {
-  // const history = useHistory()
+  const navigator = useNavigate()
   function handleFinish() {
     loginApp({ userName: 'fall', pwd: '123' }).then((res) => {
       if (res.code === 200) {
         sessionStorage.setItem('token', '配置权限成功')
-        history.push('/contact')
+        navigator('/contact')
       } else {
         message.error('用户名或密码错误！')
       }
     }).catch(err => {
-      message.error('找不到服务器！(请开启JSON-Server)')
+      navigator('/contact')
+      // message.error('找不到服务器！(请开启JSON-Server)')
       throw new Error(err)
     })
   }
 
-  function handleClick(way:string) {
+  function handleClick(way: string) {
     signInWay(way)
   }
 
@@ -34,7 +35,7 @@ const LoginInputZone: React.FC<ILoginParams> = ({ signInWay }) => {
         <div className={styles.header}>
           <div className={styles.loginTitle}>登陆</div>
           <div
-            onClick={()=>handleClick('code identify')}
+            onClick={() => handleClick('code identify')}
             className={styles.changeWay}
             style={{ width: 99, textAlign: 'right' }}
           >

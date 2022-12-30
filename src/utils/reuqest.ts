@@ -8,5 +8,5 @@ import { urlPrefix } from '../config'
 // 使用前缀，配合本地代理
 export const $http = extend({
   prefix: `${urlPrefix}`,
-  timeout: 2000,
+  timeout: 2000
 })

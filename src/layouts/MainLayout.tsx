@@ -4,13 +4,14 @@
   N |  Content
   U |
 */
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
+import { Routes, Route } from 'react-router'
 
 import Menu from './menus'
 import FooterText from './footers'
 import { Layout } from 'antd'
 const { Sider, Content, Footer } = Layout
-const MainPage: React.FC = ({ children }) => {
+const MainPage: React.FC<{ children?: ReactNode }> = (prop) => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
   return (<>
     <Layout style={{ minHeight: '100vh', width: '100%' }}>
@@ -24,10 +25,11 @@ const MainPage: React.FC = ({ children }) => {
       </Sider>
       <Layout className="site-layout">
         <Content style={{ margin: '16px 16px', overflow: 'auto' }}>
-          {children}
+
+          {prop.children}
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          <FooterText/>
+          <FooterText />
         </Footer>
       </Layout>
     </Layout>

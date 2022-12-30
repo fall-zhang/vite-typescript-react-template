@@ -2,7 +2,7 @@ import React from 'react'
 import { Input } from 'antd'
 import classNames from 'classnames'
 import { InputProps } from 'antd/es/input'
-import Icon from '../Icon'
+import Icon from '../Icons/AntdIcon'
 import PopoverMenu from '@/components/PopoverMenu'
 import styles from './IconSelect.module.less'
 const iconList = [
@@ -14,7 +14,7 @@ const iconList = [
   'bookdingbu',
   'bookdibu1',
   'bookfanhuidingbu',
-  'bookhuidingbu',
+  'bookhuidingbu'
 ]
 // 利用 Omit 先忽略 InputProps 接口中的 value, onChange, readOnly 属性，再添加所需的类型
 interface IconSelectProps
@@ -24,7 +24,7 @@ interface IconSelectProps
   // 受控属性
   onChange?: (value: string) => void;
   // 容器位置
-  getPopupContainer?: (props: any) => HTMLElement;
+  getPopupContainer?: (props: unknown) => HTMLElement;
 }
 
 /**
@@ -59,7 +59,7 @@ function IconSelect({
             <Icon
               key={item}
               className={classNames(styles.iconItem, {
-                [styles.active]: value === item,
+                [styles.active]: value === item
               })}
               type={item}
               onClick={() => handleSelectIcon(item)}

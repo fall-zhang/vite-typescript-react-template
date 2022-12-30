@@ -12,6 +12,7 @@ specifiers:
   ahooks: ^3.7.4
   antd: ^5.1.1
   classnames: ^2.3.2
+  clsx: ^1.2.1
   cross-env: ^7.0.3
   dayjs: ^1.11.7
   eslint: ^8.30.0
@@ -43,6 +44,7 @@ dependencies:
   ahooks: 3.7.4_react@18.2.0
   antd: 5.1.1_biqbaboplfbrettd7655fr4n2y
   classnames: 2.3.2
+  clsx: 1.2.1
   dayjs: 1.11.7
   eslint-config-prettier: 8.5.0_eslint@8.30.0
   eslint-plugin-prettier: 4.2.1_kl4pe43v5b43npmso5hoplpbyi
@@ -1314,6 +1316,11 @@ packages:
     dependencies:
       is-regexp: 2.1.0
     dev: true
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}

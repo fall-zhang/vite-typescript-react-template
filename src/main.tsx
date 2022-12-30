@@ -9,9 +9,6 @@ const container = document.getElementById('root')!
 const root = createRoot(container)
 root.render(<React.StrictMode>
   <div className={style.App}>
-    <header className={style.AppHeader}>
-      <RouterPage />
-      {/* {'people needs fath'} */}
-    </header>
+    <RouterPage />
   </div>
 </React.StrictMode>)
