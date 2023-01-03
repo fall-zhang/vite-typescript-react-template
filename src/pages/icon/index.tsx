@@ -1,8 +1,8 @@
-import Icon from '@/components/Icon'
+import Icon from '@/components/Icons/AntdIcon'
 import React, { useState } from 'react'
 import styles from './index.module.less'
 import IconSelect from '@/components/IconSelect'
-import type { IconType } from '@/components/Icon'
+import type { IconType } from '@/components/Icons/AntdIcon'
 interface IconItem extends IconType {
   describe: string
 }
@@ -21,7 +21,7 @@ const iconList: IconItem[] = [
   { type: 'bookxiangmu2', className: styles.iconItem, size: 'large', describe: '项目' },
   { type: 'booktianqizitiku51', className: styles.iconItem, size: 'large', describe: '未知' },
   { type: 'bookweizhi', className: styles.iconItem, size: 'large', describe: '未知' },
-  { type: 'bookshuben', className: styles.iconItem, size: 'large', describe: '书本' },
+  { type: 'bookshuben', className: styles.iconItem, size: 'large', describe: '书本' }
 ]
 
 const IconPage: React.FC = () => {

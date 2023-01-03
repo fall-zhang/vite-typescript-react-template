@@ -7,7 +7,7 @@
 
 ```tsx
 import React from "react";
-import Icon from "@/components/Icon";
+import Icon from "@/components/Icons/AntdIcon";
 import PopoverMenu, { PopoverMenuItem } from "@/components/PopoverMenu";
 
 export default () => {
