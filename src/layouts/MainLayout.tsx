@@ -5,10 +5,9 @@
   U |
 */
 import React, { ReactNode, useState } from 'react'
-import { Routes, Route } from 'react-router'
 
 import Menu from './menus'
-import FooterText from './footers'
+import FooterText from './Footer'
 import { Layout } from 'antd'
 const { Sider, Content, Footer } = Layout
 const MainPage: React.FC<{ children?: ReactNode }> = (prop) => {
@@ -25,7 +24,6 @@ const MainPage: React.FC<{ children?: ReactNode }> = (prop) => {
       </Sider>
       <Layout className="site-layout">
         <Content style={{ margin: '16px 16px', overflow: 'auto' }}>
-
           {prop.children}
         </Content>
         <Footer style={{ textAlign: 'center' }}>

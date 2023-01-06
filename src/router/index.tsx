@@ -6,6 +6,7 @@ import ErrorPage from '@/pages/err'
 import MainLayout from '@/layouts'
 import Icon from '@/pages/icon'
 import Contact from '@/pages/contact/index'
+import WorkList from '@/pages/works/index'
 
 // React.lazy(() => import("@/pages/contact/index"))
 const RouterPage: React.FC = () => {
@@ -17,6 +18,7 @@ const RouterPage: React.FC = () => {
         <Route path='/*' element={<MainLayout>
           <Routes>
             <Route path="/contact" element={<Contact />} />
+            <Route path="/works" element={<WorkList />} />
             <Route path="/icon" element={<Icon />} />
             <Route path="/root" element={<Icon />} />
           </Routes>

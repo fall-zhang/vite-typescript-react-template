@@ -28,9 +28,9 @@ const constantRoute: RouteParam[] = [
         exact: true,
         path: '/home',
         component: asyncLoad('@/pages/login'),
-        meta: { title: '菜单名称', hidden: true, auth: 'menu' },
+        meta: { title: '菜单名称', hidden: true, auth: 'menu' }
       }
     ]
-  },
+  }
 ]
 export default constantRoute

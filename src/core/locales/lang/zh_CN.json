@@ -1,8 +1,8 @@
 {
-  "frontEnd": "前端永远在路上",
+  "frontEnd": "Fall",
   "switchLan": "语言切换",
-  "switchToEn": "Change to English",
-  "switchToCh": "切换到中文",
+  "switchToEn": "English",
+  "switchToCh": "中文",
   "localLan": "本项目国际化基于",
   "menu-contact": "联系方式",
   "menu-icon": "图标",

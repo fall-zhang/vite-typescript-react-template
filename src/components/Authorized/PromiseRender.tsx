@@ -26,8 +26,8 @@ export default class PromiseRender<T, K> extends React.Component<
   PromiseRenderState
 > {
   state: PromiseRenderState = {
-    component: () => null,
-  };
+    component: () => null
+  }
 
   componentDidMount() {
     this.setRenderComponent(this.props)
@@ -38,11 +38,11 @@ export default class PromiseRender<T, K> extends React.Component<
     nextState: PromiseRenderState
   ) => {
     const { component } = this.state
-    if (nextProps=== this.props) {
+    if (nextProps === this.props) {
       this.setRenderComponent(nextProps)
     }
     return nextState.component !== component
-  };
+  }
 
   // set render Component : ok or error
   setRenderComponent(props: PromiseRenderProps<T, K>) {
@@ -51,13 +51,13 @@ export default class PromiseRender<T, K> extends React.Component<
     props.promise
       .then(() => {
         this.setState({
-          component: ok,
+          component: ok
         })
         return true
       })
       .catch(() => {
         this.setState({
-          component: error,
+          component: error
         })
       })
   }
@@ -77,7 +77,7 @@ export default class PromiseRender<T, K> extends React.Component<
       return (props: any) => React.cloneElement(target, props)
     }
     return () => target as React.ReactNode & null
-  };
+  }
 
   render() {
     const { component: Component } = this.state

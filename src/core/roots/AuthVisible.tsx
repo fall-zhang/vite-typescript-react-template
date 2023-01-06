@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 /**
- * 将组件用该组件包裹，只有符合认证，才能查看组件内的 children
- * @param children
- * @returns
+ * 该组件包裹的组件，只有符合认证，才能查看组件内的 children
+ * @param children token
+ * @returns @ReactNode
  */
-const AuthContainer: React.FC<{ token: string }> = ({ children, token }) => {
-  const currentList:string[] = ['button']
+const AuthContainer: React.FC<{ token: string, children: ReactNode }> = ({ children, token }) => {
+  const currentList: string[] = ['button']
   if (!currentList.includes(token)) {
     return (<div>
       {/* null */}

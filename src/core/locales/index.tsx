@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { ReactNode } from 'react'
 import type { IntlShape } from 'react-intl'
 import { createIntl, IntlProvider } from 'react-intl'
 import ConfigProvider from 'antd/lib/config-provider'
@@ -17,6 +17,18 @@ let globalInitLanguage: IntlShape
 // 添加默认本地语言
 if (!localStorage.getItem('current__locale')) {
   localStorage.setItem('current__locale', defaultLanguage)
+}
+
+function getLocale(): SupportLanguage {
+  const result = localStorage.getItem('current__locale')
+  return result as SupportLanguage
+}
+
+function setLocale(lang: SupportLanguage): boolean {
+  localStorage.setItem('current__locale', lang || defaultLanguage)
+  // 设置语言后重载，查看是否可以不用重载
+  // window.location.reload()
+  return true
 }
 
 /**
@@ -46,34 +58,9 @@ const getLocaleInfo = (): SingleLanguageSetting => {
 }
 
 /**
- * 获取当前使用的语言
- */
-function getLocale(): SupportLanguage {
-  const result = localStorage.getItem('current__locale') || defaultLanguage
-  return result as SupportLanguage
-}
-
-/**
  * 没有语言，或者出现错误的时候，初始化语言信息
  * 通过 React 的 createIntl 初始化当前语言信息
  */
-const initLanguage = () => {
-  const currentLocale = getLocale()
-  if (!globalInitLanguage) {
-    globalInitLanguage = createIntl(langSupport[currentLocale])
-  }
-  return createIntl(langSupport[currentLocale])
-}
-
-/**
- * 切换语言
- */
-const setLocale = (lang: SupportLanguage): void => {
-  if (typeof window.localStorage !== 'undefined') {
-    window.localStorage.setItem('current__locale', lang || defaultLanguage)
-  }
-  window.location.reload()
-}
 
 /**
  * 语言转换接口
@@ -84,7 +71,11 @@ const formatMessage = (
   values?: Record<string, any>
 ): string => {
   if (!globalInitLanguage) {
-    globalInitLanguage = initLanguage()
+    const currentLocale = getLocale()
+    if (!globalInitLanguage) {
+      globalInitLanguage = createIntl(langSupport[currentLocale])
+    }
+    globalInitLanguage = createIntl(langSupport[currentLocale])
   }
   return globalInitLanguage.formatMessage(descriptor, values)
 }
@@ -92,7 +83,7 @@ const formatMessage = (
 /**
  * 国际化组件
  */
-const LocaleProvider: React.FC = (props) => {
+const LocaleProvider: React.FC<{ children: ReactNode }> = (props) => {
   return (
     <IntlProvider locale={getLocale()}>
       <ConfigProvider locale={langSupport[getLocale()].antd}>
@@ -103,6 +94,7 @@ const LocaleProvider: React.FC = (props) => {
 }
 export {
   getLocaleInfo,
+  getLocale,
   setLocale,
   formatMessage,
   LocaleProvider

@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styles from './index.module.less'
 import { Menu, Tooltip } from 'antd'
-import { Link, useLocation, } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import {
   GithubOutlined,
   CreditCardOutlined,
   DesktopOutlined,
   PieChartOutlined,
   TranslationOutlined,
-  TableOutlined,
+  TableOutlined
 } from '@ant-design/icons'
 import { formatMessage } from '@/core/locales'
 
