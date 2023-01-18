@@ -47,15 +47,16 @@ type MenuItem = Required<MenuProps>['items'][number];
 //   </Menu.Item>
 // </Menu.SubMenu>
 // ]
+
 const genMenuItem = (key: string, label: string, icon?: ReactNode, children?: MenuItem[]): MenuItem => ({
-  key: '/contact',
+  key: key,
   icon: icon,
   label: <Link to={key}>{label}</Link>,
   children: children || []
 })
 
 const menuItems: MenuProps['items'] = [
-  genMenuItem('/icon', formatMessage({ id: 'menu-contact' })),
+  genMenuItem('/icon', formatMessage({ id: 'menu-icon' }), <PieChartOutlined />),
   {
     key: '/contact',
     icon: < GithubOutlined />,

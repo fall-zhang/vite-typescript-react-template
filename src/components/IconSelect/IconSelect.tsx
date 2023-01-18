@@ -1,6 +1,6 @@
 import React from 'react'
 import { Input } from 'antd'
-import classNames from 'classnames'
+import classNames from 'clsx'
 import { InputProps } from 'antd/es/input'
 import Icon from '../Icons/AntdIcon'
 import PopoverMenu from '@/components/PopoverMenu'

@@ -4,6 +4,8 @@ import './index.module.css'
 import style from './index.module.css'
 import 'antd/dist/reset.css'
 import RouterPage from './router'
+console.log(import.meta)
+
 // import { LocaleProvider } from './core/locales'
 const container = document.getElementById('root')!
 const root = createRoot(container)

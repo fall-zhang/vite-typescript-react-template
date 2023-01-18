@@ -36,7 +36,7 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.6.1",
     "react-router-dom": "^6.6.1",
-    "umi-request": "^1.4.0"
+    "axios": "^1.2.0"
   },
   "devDependencies": {
     "@types/mockjs": "^1.0.7",
@@ -47,8 +47,6 @@
     "@typescript-eslint/parser": "^5.48.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.31.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.11",
     "husky": "^8.0.3",
     "less": "^4.1.3",
