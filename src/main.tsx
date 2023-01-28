@@ -4,7 +4,6 @@ import './global.less'
 import 'antd/dist/reset.css'
 import RouterPage from './router'
 import clsx from 'clsx'
-console.log(import.meta)
 
 // import { LocaleProvider } from './core/locales'
 const container = document.getElementById('root')!

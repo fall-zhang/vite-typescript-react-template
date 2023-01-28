@@ -1,9 +1,9 @@
 import React from 'react'
-import { Input } from 'antd'
+import { Input, Popover } from 'antd'
 import classNames from 'clsx'
 import { InputProps } from 'antd/es/input'
 import Icon from '../Icons/AntdIcon'
-import PopoverMenu from '@/components/PopoverMenu'
+import PopoverMenu from './PopoverMenu'
 import styles from './IconSelect.module.less'
 const iconList = [
   'bookbianji',
@@ -49,8 +49,8 @@ function IconSelect({
   return (
     <PopoverMenu
       trigger={['click']}
-      visible={visible}
-      onVisibleChange={!disabled ? setVisible : undefined}
+      open={visible}
+      onOpenChange={disabled ? undefined : setVisible}
       placement="bottomLeft"
       getPopupContainer={getPopupContainer}
       content={
