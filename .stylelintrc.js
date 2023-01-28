@@ -2,6 +2,7 @@ module.exports = {
   extends: "stylelint-config-standard",
   rules: {
     // 颜色值小写
+    "selector-class-pattern": ".*",
     "color-hex-case": "lower",
     // 注释前无须空行
     "comment-empty-line-before": "never",
