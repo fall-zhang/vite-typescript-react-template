@@ -1,4 +1,4 @@
-import { $http } from '@/utils/reuqest'
+import request from '@/utils/reuqest'
 import { getLoginWay, setLoginWay } from './localStorage'
 /**
  * 登录认证：用来作为用户当前登录的认证（所有用户统一使用的认证方式）
@@ -26,7 +26,9 @@ export interface ILoginData extends Record<string, unknown> {
  */
 
 const loginApp = (params: ILogin): Promise<ILoginData> => {
-  return $http.get('/get', params)
+  return request.get('/log', {
+    headers:{}
+  })
 }
 export {
   getLoginWay,

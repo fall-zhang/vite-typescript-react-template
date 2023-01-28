@@ -1,21 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Input, Popover } from 'antd'
-import classNames from 'clsx'
+import clsx from 'clsx'
 import { InputProps } from 'antd/es/input'
-import Icon from '../Icons/AntdIcon'
-import PopoverMenu from './PopoverMenu'
+import Icon from '@/components/Icons/AntdIcon'
 import styles from './IconSelect.module.less'
-const iconList = [
-  'bookbianji',
-  'bookbianji1',
-  'bookbianji3',
-  'bookbianji4',
-  'bookdibu',
-  'bookdingbu',
-  'bookdibu1',
-  'bookfanhuidingbu',
-  'bookhuidingbu'
-]
+
 // 利用 Omit 先忽略 InputProps 接口中的 value, onChange, readOnly 属性，再添加所需的类型
 interface IconSelectProps
   extends Omit<InputProps, 'value' | 'onChange' | 'readOnly'> {
@@ -37,35 +26,23 @@ function IconSelect({
   getPopupContainer,
   ...props
 }: IconSelectProps) {
-  const [visible, setVisible] = React.useState(false)
-
-  function handleSelectIcon(item: string) {
+  const [visible, setVisible] = useState(false)
+  const [selectItem, setSelectItem] = useState('')
+  function onClickItem(selectItem: string) {
     if (onChange) {
-      onChange(item)
+      onChange(selectItem)
     }
-    setVisible(false)
+    setSelectItem(selectItem)
   }
-
   return (
-    <PopoverMenu
+    <Popover
       trigger={['click']}
       open={visible}
       onOpenChange={disabled ? undefined : setVisible}
       placement="bottomLeft"
       getPopupContainer={getPopupContainer}
       content={
-        <div className={styles.selectWrap}>
-          {iconList.map((item) => (
-            <Icon
-              key={item}
-              className={classNames(styles.iconItem, {
-                [styles.active]: value === item
-              })}
-              type={item}
-              onClick={() => handleSelectIcon(item)}
-            />
-          ))}
-        </div>
+        <IconList selectItem={selectItem} onClickItem={onClickItem}></IconList>
       }
     >
       <Input
@@ -78,8 +55,40 @@ function IconSelect({
         readOnly
         {...props}
       />
-    </PopoverMenu>
+    </Popover>
   )
 }
-
+const iconList = [
+  'bookbianji',
+  'bookbianji1',
+  'bookbianji3',
+  'bookbianji4',
+  'bookdibu',
+  'bookdingbu',
+  'bookdibu1',
+  'bookfanhuidingbu',
+  'bookhuidingbu'
+]
+interface IconList {
+  selectItem: string
+  onClickItem: (value: string) => void;
+}
+function IconList({ selectItem, onClickItem, ...props }: IconList) {
+  return (
+    <div className={styles.selectWrap}>
+      {iconList.map((item) => (
+        <Icon
+          key={item}
+          className={clsx({
+            [styles.iconItem]: true,
+            [styles.active]: selectItem === item
+          })}
+          type={item}
+          onClick={() => onClickItem(item)}
+          {...props}
+        />
+      ))}
+    </div>
+  )
+}
 export default IconSelect
