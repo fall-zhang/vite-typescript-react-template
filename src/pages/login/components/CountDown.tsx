@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Button, Col, Form, Input, Row, } from 'antd'
-import classNames from 'classnames'
+import { Button, Col, Form, Input, Row } from 'antd'
+import classNames from 'clsx'
 import { FormInstance } from 'antd/es/form'
 import messageStyles from './LoginMessage.module.less'
 import styles from '../index.module.less'
@@ -16,7 +16,7 @@ interface ICountDownParams {
 const CountDown: React.FC<ICountDownParams> = ({
   type,
   form,
-  invitation = false,
+  invitation = false
 }) => {
   const prefixSpan = (
     <Form.Item name="prefix" noStyle>
@@ -33,14 +33,14 @@ const CountDown: React.FC<ICountDownParams> = ({
    * 倒计时
    */
   const [count, setCount] = useState(60)
-  const [delay, setDelay] = useState<number | null>(null)
+  const [delay, setDelay] = useState<number | undefined>(undefined)
   useInterval(() => {
     setCount(count - 1)
     setDes(`${'重置'}(${count} s)`)
     if (count <= 0) {
       setCount(60)
       setDes('获取验证码')
-      setDelay(null)
+      setDelay(undefined)
       setClick(true)
     }
   }, delay)
@@ -64,12 +64,12 @@ const CountDown: React.FC<ICountDownParams> = ({
         rules={[
           {
             required: true,
-            message: formatMessage({ id: '请输入手机号码' }),
+            message: formatMessage({ id: '请输入手机号码' })
           },
           {
             message: formatMessage({ id: '手机号码格式错误' }),
-            pattern: /^1[3456789]\d{9}$/,
-          },
+            pattern: /^1[3456789]\d{9}$/
+          }
         ]}
       >
         <Input
@@ -86,8 +86,8 @@ const CountDown: React.FC<ICountDownParams> = ({
           rules={[
             {
               required: true,
-              message: formatMessage({ id: 'invitationCodeNull' }),
-            },
+              message: formatMessage({ id: 'invitationCodeNull' })
+            }
           ]}
         >
           <Input
@@ -103,7 +103,7 @@ const CountDown: React.FC<ICountDownParams> = ({
       <Form.Item
         name="check_code"
         rules={[
-          { required: true, message: formatMessage({ id: 'messageNull' }) },
+          { required: true, message: formatMessage({ id: 'messageNull' }) }
         ]}
       >
         <Row gutter={6}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button } from 'antd'
-import classNames from 'classnames'
+import classNames from 'clsx'
 import styles from './index.module.less'
 import { AuthContainer } from '@/core/roots'
 const AuthPage: React.FC = () => {
@@ -9,10 +9,10 @@ const AuthPage: React.FC = () => {
   function toggleState() {
     setState(!state)
   }
-  function toggleRoot(){
-    if(rootState === ''){
+  function toggleRoot() {
+    if (rootState === '') {
       setRootState('button')
-    }else{
+    } else {
       setRootState('')
     }
   }

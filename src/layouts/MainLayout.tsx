@@ -3,11 +3,12 @@
   E |
   N |  Content
   U |
+  ------Footer--
 */
 import React, { ReactNode, useState } from 'react'
 
-import Menu from './menus'
-import FooterText from './Footer'
+import Menu from '@C/Menus'
+import FooterText from './material/Footer'
 import { Layout } from 'antd'
 const { Sider, Content, Footer } = Layout
 const MainPage: React.FC<{ children?: ReactNode }> = (prop) => {

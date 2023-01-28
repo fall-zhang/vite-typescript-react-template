@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginCard from './LoginCard'
-import classNames from 'classnames'
+import classNames from 'clsx'
 import { setLoginWay } from '@/core/auth'
 import styles from './index.module.less'
 

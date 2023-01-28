@@ -26,6 +26,7 @@ const LoginForm: React.FC<{ onSubmit: Submit }> = ({ onSubmit }) => {
         >
           <Input
             className={styles.input}
+            autoComplete="current-password"
             type="password"
             placeholder="密码"
             maxLength={128}
