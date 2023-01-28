@@ -6,7 +6,7 @@ import ErrorPage from '@/pages/err'
 import MainLayout from '@/layouts/MainLayout'
 import Icon from '@/pages/icon'
 import Contact from '@/pages/contact/index'
-import WorkList from '@/pages/works/index'
+import WorkList from '@/pages/locales/index'
 
 // React.lazy(() => import("@/pages/contact/index"))
 const RouterPage: React.FC = () => {
