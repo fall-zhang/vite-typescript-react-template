@@ -1,9 +1,13 @@
 module.exports = {
   extends: "stylelint-config-standard",
   rules: {
+    // class 选择器名称正则
+    // "selector-class-pattern": "^[a-zA-Z]([a-zA-Z0-9]|-|_)*$",
+    // keyframes 名称正则
+    // "keyframes-name-pattern": "^[a-zA-Z]([a-zA-Z0-9]|-)*$",
+    "selector-class-pattern": null,
+    "keyframes-name-pattern": null,
     // 颜色值小写
-    "selector-class-pattern": "^[a-zA-Z]([a-zA-Z0-9]|-|_)*$",
-    "keyframes-name-pattern": "^[a-zA-Z]([a-zA-Z0-9]|-)*$",
     "color-hex-case": "lower",
     // 注释前无须空行
     "comment-empty-line-before": "never",
