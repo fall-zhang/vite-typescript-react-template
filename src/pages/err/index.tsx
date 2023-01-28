@@ -1,12 +1,11 @@
 import React, { FC } from 'react'
 import { Result, Button } from 'antd'
-// import { useHistory } from 'react-router-dom'
-import './index.module.less'
+import { useNavigate } from 'react-router-dom'
 const ErrPage: FC = () => {
   const logged = sessionStorage.token
-  // const history = useHistory()
+  const navigate = useNavigate()
   const TypeButton = (
-    <Button type="primary" key="login" onClick={() => { history.push('/login') }}>
+    <Button type="primary" key="login" onClick={() => { navigate('/login') }}>
       跳转到登陆
     </Button>
   )

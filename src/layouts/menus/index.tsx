@@ -14,19 +14,6 @@ import {
 import { formatMessage } from '@/core/locales'
 type MenuItem = Required<MenuProps>['items'][number];
 
-// const menuItems: MenuProps['items'] = [
-//   <Menu.Item key="/contact" icon={<GithubOutlined />}>
-//   <Link to={'/contact'}>{formatMessage({ id: 'menu-contact' })}</Link>
-// </Menu.Item>
-// <Menu.Item key="/icon" icon={<PieChartOutlined />}>
-//   <Link to={'/icon'}>{formatMessage({ id: 'menu-icon' })}</Link>
-// </Menu.Item>
-// <Menu.Item key="/auth" icon={<CreditCardOutlined />}>
-//   <Link to={'/auth'}>{formatMessage({ id: 'menu-roots' })}</Link>
-// </Menu.Item>
-// <Menu.Item key="/works" icon={<CreditCardOutlined />}>
-//   <Link to={'/works'}>{formatMessage({ id: 'menu-works' })}</Link>
-// </Menu.Item>
 // <Menu.SubMenu key="sub2" icon={<DesktopOutlined />} title={formatMessage({ id: 'menu-components' })}>
 //   <Menu.Item key="/form">
 //     <Link to={'/form'}>自定义表单</Link>
@@ -48,21 +35,24 @@ type MenuItem = Required<MenuProps>['items'][number];
 // </Menu.SubMenu>
 // ]
 
+// <Menu.Item key="/auth" icon={<CreditCardOutlined />}>
+//   <Link to={'/auth'}>{formatMessage({ id: 'menu-roots' })}</Link>
+// </Menu.Item>
 const genMenuItem = (key: string, label: string, icon?: ReactNode, children?: MenuItem[]): MenuItem => ({
   key: key,
   icon: icon,
   label: <Link to={key}>{label}</Link>,
-  children: children || []
+  children: children
 })
 
 const menuItems: MenuProps['items'] = [
-  genMenuItem('/icon', formatMessage({ id: 'menu-icon' }), <PieChartOutlined />),
-  {
-    key: '/contact',
-    icon: < GithubOutlined />,
-    children: [],
-    label: <Link to={'/contact'}>{formatMessage({ id: 'menu-contact' })}</Link>
-  }
+  genMenuItem('/works', formatMessage({ id: 'menu-works' }), < CreditCardOutlined />),
+  genMenuItem('/contact', formatMessage({ id: 'menu-contact' }), < GithubOutlined />),
+  genMenuItem('/contact', formatMessage({ id: 'menu-contact' }), < GithubOutlined />),
+  genMenuItem('/contact', formatMessage({ id: 'menu-contact' }), < GithubOutlined />),
+  genMenuItem('/contact', formatMessage({ id: 'menu-contact' }), < GithubOutlined />),
+  genMenuItem('/contact', formatMessage({ id: 'menu-contact' }), < GithubOutlined />),
+  genMenuItem('/icon', formatMessage({ id: 'menu-icon' }), <PieChartOutlined />)
 ]
 const HomePage: React.FC = () => {
   // 收缩侧边栏

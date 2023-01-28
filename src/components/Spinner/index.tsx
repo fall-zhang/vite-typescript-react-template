@@ -1,20 +1,20 @@
-import React from "react";
-import { Spin } from "antd";
-import classNames from "classnames";
-import { LoadingOutlined } from "@ant-design/icons";
-import { SpinProps } from "antd/es/spin";
-import styles from "./Spinner.module.less";
+import React from 'react'
+import { Spin } from 'antd'
+import classNames from 'classnames'
+import { LoadingOutlined } from '@ant-design/icons'
+import { SpinProps } from 'antd/es/spin'
+import styles from './Spinner.module.less'
 
-Spin.setDefaultIndicator(<LoadingOutlined spin />);
+Spin.setDefaultIndicator(<LoadingOutlined spin />)
 
-const Spinner: React.FC<Omit<SpinProps, "prefixCls">> = ({
+const Spinner: React.FC<Omit<SpinProps, 'prefixCls'>> = ({
   className,
   size,
   tip,
   delay,
   indicator,
   spinning,
-  style,
+  style
 }) => (
   <Spin
     className={classNames(styles.spinWrap, className)}
@@ -25,6 +25,6 @@ const Spinner: React.FC<Omit<SpinProps, "prefixCls">> = ({
     spinning={spinning}
     style={style}
   />
-);
+)
 
-export default Spinner;
+export default Spinner

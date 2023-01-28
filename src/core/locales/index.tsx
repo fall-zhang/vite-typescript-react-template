@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react'
 import type { IntlShape } from 'react-intl'
 import { createIntl, IntlProvider } from 'react-intl'
 import ConfigProvider from 'antd/lib/config-provider'
+// 默认提供一套语言，然后实现动态加载另一种语言
 // 项目中的语言信息
 import antdZhCN from 'antd/lib/locale/zh_CN'
 import antdEnUS from 'antd/lib/locale/en_US'

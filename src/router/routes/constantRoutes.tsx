@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 
 import BlankPage from '@/layouts/menus'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 // 实现解析当前路由
 import type { RouteParam } from '../route'
