@@ -4,7 +4,7 @@ import { Button, message, Space } from 'antd'
 // import { useStore } from 'rediaox'
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
-const CustomPage: React.FC = ({ children }) => {
+const CustomPage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   async function asyncExecute() {
     await sleep(1000)

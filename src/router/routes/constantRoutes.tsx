@@ -1,6 +1,6 @@
 import React from 'react'
 
-import BlankPage from '@/layouts/menus'
+import BlankPage from '@C/Menus'
 import { Navigate } from 'react-router-dom'
 
 // 实现解析当前路由
