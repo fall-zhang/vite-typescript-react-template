@@ -8,11 +8,11 @@ import Icon from '@/pages/icon'
 import Contact from '@/pages/contact/index'
 import WorkList from '@/pages/locales/index'
 
-// React.lazy(() => import("@/pages/contact/index"))
 const RouterPage: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+        {/* <Route path='/login'  loader={() => import('@/pages/icon')} /> */}
         <Route path='/login' element={<LoginPage></LoginPage>}></Route>
         <Route path='/err' element={<ErrorPage></ErrorPage>}></Route>
         <Route path='/*' element={<MainLayout>

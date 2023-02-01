@@ -4,7 +4,7 @@ import BlankPage from '@C/Menus'
 import { Navigate } from 'react-router-dom'
 
 // 实现解析当前路由
-import type { RouteParam } from '../route'
+import type { RouteParam } from './route'
 const asyncLoad = (str: string) => React.lazy(() => import(str))
 const constantRoute: RouteParam[] = [
   {
@@ -23,12 +23,6 @@ const constantRoute: RouteParam[] = [
         meta: { title: '菜单名称', hidden: true, auth: 'menu' }
       }
     ]
-  },
-  {
-    path: '',
-    component: <Navigate to="/login" replace />,
-    meta: { title: '菜单名称', hidden: true, auth: 'menu' },
-    redirect: '/login'
   }
 ]
 export default constantRoute
