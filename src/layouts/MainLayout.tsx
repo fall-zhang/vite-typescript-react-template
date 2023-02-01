@@ -23,11 +23,11 @@ const MainPage: React.FC<{ children?: ReactNode }> = (prop) => {
       >
         <Menu />
       </Sider>
-      <Layout className="site-layout">
-        <Content style={{ margin: '16px 16px', overflow: 'auto' }}>
+      <Layout className="layout-main">
+        <Content style={{ height: 'calc(100vh-24px)', margin: '16px 16px', overflow: 'auto' }}>
           {prop.children}
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
+        <Footer style={{ height: '24px', textAlign: 'center' }}>
           <FooterText />
         </Footer>
       </Layout>
