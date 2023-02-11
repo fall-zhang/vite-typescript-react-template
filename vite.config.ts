@@ -2,10 +2,11 @@
 import reactRefresh from '@vitejs/plugin-react'
 import { apiAddress, proxyApi } from './src/config'
 import * as path from 'path'
-import type { ConfigEnv, UserConfig } from 'vite'
+import type { UserConfig } from 'vite'
 // https://vitejs.dev/config/
-export default ({ command, mode }: ConfigEnv): UserConfig => {
-  const isBuild = command === 'build'
+export default (): UserConfig => {
+  // { command, mode }: ConfigEnv
+  // const isBuild = command === 'build'
   return {
     server: {
       port: 3001,
