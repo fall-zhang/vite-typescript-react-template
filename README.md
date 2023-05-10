@@ -4,6 +4,8 @@
 
 ## 启动项目
 
+请确保 node 版本至少为 16，Vite 或者一些其它的依赖对 node 版本有要求
+
 - 依赖安装：`yarn` or `npm i` or `pnpm i`
 - 本地启动项目：`yarn dev` or `npm dev`
 
