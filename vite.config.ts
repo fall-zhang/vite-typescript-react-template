@@ -9,7 +9,7 @@ export default (): UserConfig => {
   // const isBuild = command === 'build'
   return {
     server: {
-      port: 3001,
+      port: 3305,
       proxy: {
         [proxyApi]: {
           target: apiAddress,
