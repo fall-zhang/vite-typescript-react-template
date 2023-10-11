@@ -1,9 +1,9 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import './global.less'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
 import 'antd/dist/reset.css'
+import '@/asset/styles/main.less'
 import RouterPage from './router'
 import clsx from 'clsx'
 
