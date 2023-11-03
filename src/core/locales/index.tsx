@@ -5,8 +5,6 @@ import { createIntl, IntlProvider } from 'react-intl'
 import ConfigProvider from 'antd/lib/config-provider'
 // 默认提供一套语言，然后实现动态加载另一种语言
 // 项目中的语言信息
-import antdZhCN from 'antd/lib/locale/zh_CN'
-import antdEnUS from 'antd/lib/locale/en_US'
 import en_US from './lang/en_US.json'
 import zh_CN from './lang/zh_CN.json'
 import type { SupportLanguage, MessageDescriptor, SingleLanguageSetting } from './language'
@@ -39,13 +37,11 @@ const langSupport: Record<SupportLanguage, SingleLanguageSetting> = {
   'en-US': {
     locale: 'en-US',
     messages: en_US,
-    antd: antdEnUS,
     momentLocale: ''
   },
   'zh-CN': {
     locale: 'zh-CN',
     messages: zh_CN,
-    antd: antdZhCN,
     momentLocale: 'zh-cn'
   }
 }
@@ -87,7 +83,7 @@ const formatMessage = (
 const LocaleProvider: React.FC<{ children: ReactNode }> = (props) => {
   return (
     <IntlProvider locale={getLocale()}>
-      <ConfigProvider locale={langSupport[getLocale()].antd}>
+      <ConfigProvider locale={langSupport[getLocale()]}>
         {props.children}
       </ConfigProvider>
     </IntlProvider>
