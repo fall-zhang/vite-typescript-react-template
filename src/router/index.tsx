@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { Route, Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { createRoutesFromChildren } from 'react-router'
@@ -34,7 +33,6 @@ const BaseRoute = createRoutesFromChildren(<>
   <Route path='/' element={<MainLayout></MainLayout>}>
     {genMainRoutes(pageRoutes)}
   </Route>
-  <Route path='/' element={<Navigate to="/picture/watermark" replace />} ></Route>
   <Route path='/*' element={<Navigate to="/err" replace />} ></Route>
 </>)
 

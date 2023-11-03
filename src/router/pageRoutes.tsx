@@ -1,19 +1,8 @@
 import React from 'react'
 import {
   GithubOutlined,
-  CreditCardOutlined,
-  DesktopOutlined,
-  PieChartOutlined
+  DesktopOutlined
 } from '@ant-design/icons'
-// import BlankRoute from 'BlankPage'
-// 实现解析当前路由
-// const MySuspense = (path: string) => {
-//   const Child = React.lazy(() => import(path))
-//   return <React.Suspense fallback={<></>}>
-//     <Child></Child>
-//   </React.Suspense>
-// }
-
 import type { RouteParam } from './route'
 const pageRoutes: RouteParam[] = [
   {
@@ -25,6 +14,6 @@ const pageRoutes: RouteParam[] = [
     path: '/contact',
     element: React.lazy(() => import('@/pages/contact/index')),
     meta: { title: '联系方式', icon: <GithubOutlined></GithubOutlined> }
-  }
+  },
 ]
 export default pageRoutes
