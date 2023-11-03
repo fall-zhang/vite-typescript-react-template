@@ -1,5 +1,5 @@
 {
-  "name": "react-vite-template",
+  "name": "vite-react-template",
   "version": "0.0.4",
   "scripts": {
     "dev": "vite --open",

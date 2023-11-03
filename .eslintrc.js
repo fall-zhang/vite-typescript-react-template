@@ -21,6 +21,8 @@ module.exports = {
     // js
     'no-else-return': 2, //如果 if 语句里面有 return ,后面不能跟 else 语句
     'arrow-body-style': 0,
+    // 'comma-dangle': ['error', 'never'], // 最后一个属性不允许有逗号
+    'comma-dangle': 0, // 最后一个对象末尾可以加 ,（逗号）
     'jsx-a11y/label-has-for': 0,
     'max-lines-per-function': [
       2,
@@ -46,7 +48,6 @@ module.exports = {
     ],
     'react/no-this-in-sfc': 0,
     'react/prop-types': 0,
-    'comma-dangle': ['error', 'never'], // 最后一个属性不允许有逗号
     'react/display-name': 'off'
   }
 }
