@@ -48,6 +48,7 @@ module.exports = {
     ],
     'react/no-this-in-sfc': 0,
     'react/prop-types': 0,
+    '@typescript-eslint/no-this-alias': 0,
     'react/display-name': 'off'
   }
 }
