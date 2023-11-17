@@ -3,8 +3,7 @@ import {
   GithubOutlined,
   DesktopOutlined
 } from '@ant-design/icons'
-import type { RouteParam } from './route'
-const pageRoutes: RouteParam[] = [
+const pageRoutes = [
   {
     path: '/icon',
     element: React.lazy(() => import('@/pages/icon/index')),
