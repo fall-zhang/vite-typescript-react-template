@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'eslint-config-standard',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
@@ -20,7 +21,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     // js
-    'no-else-return': 2, //如果 if 语句里面有 return 后面不能跟 else 语句
+    'no-else-return': 2, // 如果 if 语句里面有 return 后面不能跟 else 语句
     'max-lines-per-function': [
       2,
       { max: 300, skipComments: true, skipBlankLines: true }
@@ -52,6 +53,6 @@ module.exports = {
     'react/prop-types': 0,
     'react/display-name': 'off',
     // typescript
-    '@typescript-eslint/no-this-alias': 0, // 是否禁止 this 的别名
+    '@typescript-eslint/no-this-alias': 0 // 是否禁止 this 的别名
   }
 }
