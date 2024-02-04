@@ -21,7 +21,6 @@ const genMainRoutes = (routes: any) => {
     }
   }
   )
-  // console.log(result)
   return result
 }
 
