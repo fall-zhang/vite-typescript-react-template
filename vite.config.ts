@@ -3,6 +3,8 @@ import reactRefresh from '@vitejs/plugin-react'
 import { apiAddress, proxyApi } from './src/config'
 import * as path from 'path'
 import type { UserConfig } from 'vite'
+import { fileURLToPath } from 'node:url'
+const __dirname = fileURLToPath(new URL('.', import.meta.url))
 // https://vitejs.dev/config/
 export default (): UserConfig => {
   // { command, mode }: ConfigEnv
@@ -37,7 +39,7 @@ export default (): UserConfig => {
           modifyVars: {
             '@primary-color': '#1890ff',
             // '@primary-1': '#096dd9',
-            '@primary-2': '#1890ff',// 全局主色
+            '@primary-2': '#1890ff', // 全局主色
             '@primary-3': '#46a6ff',
             '@primary-4': '#74bcff',
             '@primary-5': '#a2d2ff',

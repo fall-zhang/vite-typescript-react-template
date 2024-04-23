@@ -35,6 +35,7 @@ module.exports = {
     'no-multi-spaces': 2, // 不能用多余的空格
     'no-trailing-spaces': 2, // 一行结束后面不要有空格
     eqeqeq: 1, // 必须使用全等
+    indent: [1, 2], // 两个空格表示换行
     'no-proto': 1, // 禁止使用__proto__属性
     'no-sparse-arrays': 2, // 禁止稀疏数组， [1,,2]
     quotes: [1, 'single'], // 引号类型 `` "" ''
@@ -52,7 +53,11 @@ module.exports = {
     'react/no-this-in-sfc': 0,
     'react/prop-types': 0,
     'react/display-name': 'off',
+    "react/jsx-uses-react": "off", // React ^16.14.0 以及 V17 以后将支持新的语法转换器
+    "react/react-in-jsx-scope": "off", // 新的语法转换器不必引入 React
     // typescript
-    '@typescript-eslint/no-this-alias': 0 // 是否禁止 this 的别名
+    '@typescript-eslint/no-this-alias': 0, // 是否禁止 this 的别名
+    '@typescript-eslint/no-unused-vars': 1, // 未使用的代码进行警告
+    '@typescript-eslint/no-explicit-any': 1 // 使用 any 时进行警告
   }
 }
